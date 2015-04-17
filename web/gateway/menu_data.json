@@ -1,0 +1,749 @@
+{
+	"menuId" : 0,
+	"status" : true,
+	"data" : [[{
+				"menuId" : 0,
+				"parentId" : 0,
+				"data" : null,
+				"name" : "首页",
+				"active" : 1,
+				"href" : "null/web/gateway/index.action",
+				"target" : null
+			}, {
+				"menuId" : 1,
+				"parentId" : 0,
+				"data" : [{
+					"menuId" : 4,
+					"parentId" : 1,
+					"data" : [{
+						"menuId" : 22,
+						"parentId" : 4,
+						"data" : null,
+						"name" : "组织",
+						"active" : 0,
+						"href" : "null/web/module/organization/org-index.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 23,
+						"parentId" : 4,
+						"data" : null,
+						"name" : "自定义视图",
+						"active" : 0,
+						"href" : "null/web/module/organization/view/userdefined-view-index.action",
+						"target" : "mainFrame"
+					}],
+					"name" : "组织管理",
+					"active" : 0,
+					"href" : "null/web/module/organization/org-index.action",
+					"target" : "mainFrame"
+				}, {
+					"menuId" : 5,
+					"parentId" : 1,
+					"data" : [{
+						"menuId" : 24,
+						"parentId" : 5,
+						"data" : null,
+						"name" : "用户",
+						"active" : 0,
+						"href" : "null/web/module/privilege/user/user-index.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 25,
+						"parentId" : 5,
+						"data" : null,
+						"name" : "角色",
+						"active" : 0,
+						"href" : "null/web/module/privilege/role/list-role-index.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 26,
+						"parentId" : 5,
+						"data" : null,
+						"name" : "在线用户",
+						"active" : 0,
+						"href" : "null/web/module/privilege/online/list_online_index.action",
+						"target" : "mainFrame"
+					}],
+					"name" : "用户管理",
+					"active" : 0,
+					"href" : "null/web/module/privilege/user/user-index.action",
+					"target" : "mainFrame"
+				}, {
+					"menuId" : 6,
+					"parentId" : 1,
+					"data" : [{
+								"menuId" : 27,
+								"parentId" : 6,
+								"data" : null,
+								"name" : "服务配置",
+								"active" : 0,
+								"href" : "null/web/module/servicemanager/list.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 28,
+								"parentId" : 6,
+								"data" : null,
+								"name" : "服务器",
+								"active" : 0,
+								"href" : "null/web/module/serviceman/server/list.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 29,
+								"parentId" : 6,
+								"data" : null,
+								"name" : "网域配置",
+								"active" : 0,
+								"href" : "null/web/module/serviceman/net_domain/list.action",
+								"target" : "mainFrame"
+							}],
+					"name" : "服务管理",
+					"active" : 0,
+					"href" : "null/web/module/servicemanager/list.action",
+					"target" : "mainFrame"
+				}, {
+					"menuId" : 13,
+					"parentId" : 1,
+					"data" : [{
+						"menuId" : 46,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "编码设备",
+						"active" : 0,
+						"href" : "null/web/module/resource/deviceInfo/page-deviceInfoAction-onDeviceInfoBo.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 47,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "解码设备",
+						"active" : 0,
+						"href" : "null/web/module/resource/decodeResource/page-decodeResourceAction-onDecodeResource.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 55,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "报警主机",
+						"active" : 0,
+						"href" : "null/web/module/extradevice/alarmdevice/page-alarmDevice.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 48,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "视频综合平台",
+						"active" : 0,
+						"href" : "null/web/module/resource/matrix/page-matrixAction-onMatrix.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 49,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "智能分析仪",
+						"active" : 0,
+						"href" : "null/web/module/extradevice/intel/page-intelDevice.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 50,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "监控点",
+						"active" : 0,
+						"href" : "null/web/module/resource/cameraInfo/cameraInfo.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 128,
+						"parentId" : 13,
+						"data" : [{
+							"menuId" : 58,
+							"parentId" : 128,
+							"data" : null,
+							"name" : "全局配置",
+							"active" : 0,
+							"href" : "null/web/module/streamMediaAllot/globalConfigInput.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 59,
+							"parentId" : 128,
+							"data" : null,
+							"name" : "组织配置",
+							"active" : 0,
+							"href" : "null/web/module/streamMediaAllot/listAssignGroup.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 60,
+							"parentId" : 128,
+							"data" : null,
+							"name" : "监控点配置",
+							"active" : 0,
+							"href" : "null/web/module/streamMediaAllot/listAssignSpot.action",
+							"target" : "mainFrame"
+						}],
+						"name" : "取流配置",
+						"active" : 0,
+						"href" : "null/web/module/streamMediaAllot/globalConfigView.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 51,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "告警器",
+						"active" : 0,
+						"href" : "null/web/module/resource/alarmIo/deviceAlarmInfo.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 129,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "存储池",
+						"active" : 0,
+						"href" : "null/web/module/storage/pagePool.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 134,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "设备接入配置",
+						"active" : 0,
+						"href" : "null/web/module/resource/deviceAccess/pageXag.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 54,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "电视墙",
+						"active" : 0,
+						"href" : "null/web/module/decodegroup/list.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 52,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "对讲通道",
+						"active" : 0,
+						"href" : "null/web/module/resource/audioIo/deviceAudioInfo.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 56,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "资源迁移",
+						"active" : 0,
+						"href" : "null/web/module/datamanage/chooseResourceTransType.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 110,
+						"parentId" : 13,
+						"data" : null,
+						"name" : "关联资源配置",
+						"active" : 0,
+						"href" : "null/web/module/resource/resourceRelation/resourceRelationIndex.action",
+						"target" : "mainFrame"
+					}],
+					"name" : "资源管理",
+					"active" : 0,
+					"href" : "null/web/module/resource/guide/guide.action",
+					"target" : "mainFrame"
+				}, {
+					"menuId" : 15,
+					"parentId" : 1,
+					"data" : [{
+						"menuId" : 63,
+						"parentId" : 15,
+						"data" : [{
+							"menuId" : 66,
+							"parentId" : 63,
+							"data" : null,
+							"name" : "默认参数 ",
+							"active" : 0,
+							"href" : "null/web/module/storage/detail_viewDefault.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 67,
+							"parentId" : 63,
+							"data" : null,
+							"name" : "录像计划时间模板",
+							"active" : 0,
+							"href" : "null/web/module/storage/list-scheduleTemplate-week.action?entity.type=2",
+							"target" : "mainFrame"
+						}],
+						"name" : "配置面板",
+						"active" : 0,
+						"href" : "null/web/module/storage/forward_guide.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 64,
+						"parentId" : 15,
+						"data" : null,
+						"name" : "录像计划单",
+						"active" : 0,
+						"href" : "null/web/module/storage/pageBill.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 65,
+						"parentId" : 15,
+						"data" : null,
+						"name" : "配置结果查询",
+						"active" : 0,
+						"href" : "null/web/module/storage/pageCameraResult.action",
+						"target" : "mainFrame"
+					}],
+					"name" : "录像配置",
+					"active" : 0,
+					"href" : "null/web/module/storage/forward_guide.action",
+					"target" : "mainFrame"
+				}, {
+					"menuId" : 17,
+					"parentId" : 1,
+					"data" : [{
+						"menuId" : 68,
+						"parentId" : 17,
+						"data" : [{
+							"menuId" : 74,
+							"parentId" : 68,
+							"data" : null,
+							"name" : "默认参数",
+							"active" : 0,
+							"href" : "null/web/module/alarm/view-default.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 75,
+							"parentId" : 68,
+							"data" : null,
+							"name" : "联动时间模板",
+							"active" : 0,
+							"href" : "null/web/module/alarm/list-scheduleTemplate.action",
+							"target" : "mainFrame"
+						}],
+						"name" : "配置面板",
+						"active" : 0,
+						"href" : "null/web/module/alarm/global-guide.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 69,
+						"parentId" : 17,
+						"data" : null,
+						"name" : "监控点告警配置单",
+						"active" : 0,
+						"href" : "null/web/module/alarm/list-camera.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 70,
+						"parentId" : 17,
+						"data" : null,
+						"name" : "报警器告警配置单",
+						"active" : 0,
+						"href" : "null/web/module/alarm/list-io.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 71,
+						"parentId" : 17,
+						"data" : null,
+						"name" : "智能告警配置单",
+						"active" : 0,
+						"href" : "null/web/module/alarm/list-intel.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 73,
+						"parentId" : 17,
+						"data" : null,
+						"name" : "防区告警配置单",
+						"active" : 0,
+						"href" : "null/web/module/alarm4extra/list.action",
+						"target" : "mainFrame"
+					}, {
+						"menuId" : 72,
+						"parentId" : 17,
+						"data" : null,
+						"name" : "配置结果查询",
+						"active" : 0,
+						"href" : "null/web/module/alarm/search-camera.action",
+						"target" : "mainFrame"
+					}],
+					"name" : "告警配置",
+					"active" : 0,
+					"href" : "null/web/module/alarm/global-guide.action",
+					"target" : "mainFrame"
+				}, {
+					"menuId" : 8,
+					"parentId" : 1,
+					"data" : [{
+								"menuId" : 119,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "萤石云配置",
+								"active" : 0,
+								"href" : "null/web/module/config/ezviz/page.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 35,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "系统参数设置",
+								"active" : 0,
+								"href" : "null/web/module/constant/findSysParamlist.action?code=030708",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 34,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "资源类型管理",
+								"active" : 0,
+								"href" : "null/web/module/config/resourcetype/listResType.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 37,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "自定义菜单",
+								"active" : 0,
+								"href" : "null/web/module/menu/list.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 33,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "功能管理",
+								"active" : 0,
+								"href" : "null/web/module/config/function/functionTree.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 36,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "数据同步",
+								"active" : 0,
+								"href" : "null/web/module/config/syc/toSyc.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 45,
+								"parentId" : 8,
+								"data" : null,
+								"name" : "数据备份还原",
+								"active" : 0,
+								"href" : "null/web/module/databackups/list.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 39,
+								"parentId" : 8,
+								"data" : [{
+									"menuId" : 43,
+									"parentId" : 39,
+									"data" : null,
+									"name" : "主题风格",
+									"active" : 0,
+									"href" : "null/web/module/config/themeconfig/themeConfig.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 44,
+									"parentId" : 39,
+									"data" : null,
+									"name" : "客户端更新",
+									"active" : 0,
+									"href" : "null/web/module/config/cuupload/toUploadCu.action",
+									"target" : "mainFrame"
+								}],
+								"name" : "界面风格配置",
+								"active" : 0,
+								"href" : "null/web/module/config/themeconfig/themeConfig.action",
+								"target" : "mainFrame"
+							}],
+					"name" : "系统配置",
+					"active" : 0,
+					"href" : "null/web/module/config/ezviz/page.action",
+					"target" : "mainFrame"
+				}],
+				"name" : "视频配置中心",
+				"active" : 0,
+				"href" : "/vportal/web/gateway/gateway.action?menuId=1",
+				"target" : null
+			}, {
+				"menuId" : 2,
+				"parentId" : 0,
+				"data" : [{
+							"menuId" : 10,
+							"parentId" : 2,
+							"data" : null,
+							"name" : "实时监控",
+							"active" : 0,
+							"href" : "null/web/module/preview/index.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 11,
+							"parentId" : 2,
+							"data" : null,
+							"name" : "录像回放",
+							"active" : 0,
+							"href" : "null/web/module/playback/index.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 14,
+							"parentId" : 2,
+							"data" : [{
+								"menuId" : 61,
+								"parentId" : 14,
+								"data" : null,
+								"name" : "历史告警",
+								"active" : 0,
+								"href" : "null/web/module/alarmcenter/index.action",
+								"target" : "mainFrame"
+							}],
+							"name" : "告警中心",
+							"active" : 0,
+							"href" : "null/web/module/alarmcenter/index.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 16,
+							"parentId" : 2,
+							"data" : null,
+							"name" : "查询中心",
+							"active" : 0,
+							"href" : "null/web/module/videodownload/downloadIndex.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 19,
+							"parentId" : 2,
+							"data" : [{
+								"menuId" : 30,
+								"parentId" : 19,
+								"data" : null,
+								"name" : "智能分析仪",
+								"active" : 0,
+								"href" : "null/web/module/intelligent/base-intel-list.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 20,
+								"parentId" : 19,
+								"data" : null,
+								"name" : "Smart设备",
+								"active" : 0,
+								"href" : "null/web/module/intelligent/intel-pageIntelDevice.action",
+								"target" : "mainFrame"
+							}],
+							"name" : "智能管理",
+							"active" : 0,
+							"href" : "null/web/module/intelligent/base-intel-list.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 21,
+							"parentId" : 2,
+							"data" : [{
+								"menuId" : 80,
+								"parentId" : 21,
+								"data" : null,
+								"name" : "管理面板",
+								"active" : 0,
+								"href" : "null/web/module/cascade/guide.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 81,
+								"parentId" : 21,
+								"data" : [{
+									"menuId" : 86,
+									"parentId" : 81,
+									"data" : null,
+									"name" : "联网状态",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-Topology.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 87,
+									"parentId" : 81,
+									"data" : null,
+									"name" : "统计分析",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-runStatus.action",
+									"target" : "mainFrame"
+								}],
+								"name" : "运行状态",
+								"active" : 0,
+								"href" : "null/web/module/cascade/redirect-ncg-Topology.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 82,
+								"parentId" : 21,
+								"data" : [{
+									"menuId" : 88,
+									"parentId" : 82,
+									"data" : null,
+									"name" : "信令网关",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-localDomain.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 89,
+									"parentId" : 82,
+									"data" : null,
+									"name" : "媒体网关",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-mediaNet.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 90,
+									"parentId" : 82,
+									"data" : null,
+									"name" : "网域设置",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-mapConfig.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 91,
+									"parentId" : 82,
+									"data" : null,
+									"name" : "转码服务器",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-decodeServerConfig.action",
+									"target" : "mainFrame"
+								}],
+								"name" : "网关配置",
+								"active" : 0,
+								"href" : "null/web/module/cascade/redirect-ncg-localDomain.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 83,
+								"parentId" : 21,
+								"data" : [{
+									"menuId" : 92,
+									"parentId" : 83,
+									"data" : null,
+									"name" : "上级域",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-domainUp.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 93,
+									"parentId" : 83,
+									"data" : null,
+									"name" : "下级域",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-domainDown.action",
+									"target" : "mainFrame"
+								}],
+								"name" : "联网配置",
+								"active" : 0,
+								"href" : "null/web/module/cascade/redirect-ncg-domainUp.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 84,
+								"parentId" : 21,
+								"data" : [{
+									"menuId" : 94,
+									"parentId" : 84,
+									"data" : null,
+									"name" : "推送资源管理",
+									"active" : 0,
+									"href" : "null/web/module/cascade/redirect-ncg-resourceShare.action",
+									"target" : "mainFrame"
+								}],
+								"name" : "资源共享管理",
+								"active" : 0,
+								"href" : "null/web/module/cascade/redirect-ncg-resourceShare.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 85,
+								"parentId" : 21,
+								"data" : [{
+									"menuId" : 95,
+									"parentId" : 85,
+									"data" : null,
+									"name" : "推送告警管理",
+									"active" : 0,
+									"href" : "null/web/module/cascade/list-pushcas.action",
+									"target" : "mainFrame"
+								}, {
+									"menuId" : 96,
+									"parentId" : 85,
+									"data" : null,
+									"name" : "接收告警配置",
+									"active" : 0,
+									"href" : "null/web/module/cascade/list-pollcas.action",
+									"target" : "mainFrame"
+								}],
+								"name" : "告警共享管理",
+								"active" : 0,
+								"href" : "null/web/module/cascade/list-pushcas.action",
+								"target" : "mainFrame"
+							}],
+							"name" : "级联管理",
+							"active" : 0,
+							"href" : "null/web/module/cascade/guide.action",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 18,
+							"parentId" : 2,
+							"data" : [{
+								"menuId" : 76,
+								"parentId" : 18,
+								"data" : null,
+								"name" : "用户登录日志",
+								"active" : 0,
+								"href" : "null/web/module/logs/pageAuthLog.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 77,
+								"parentId" : 18,
+								"data" : null,
+								"name" : "操作日志",
+								"active" : 0,
+								"href" : "null/web/module/logs/pageOperation.action",
+								"target" : "mainFrame"
+							}, {
+								"menuId" : 78,
+								"parentId" : 18,
+								"data" : null,
+								"name" : "系统日志",
+								"active" : 0,
+								"href" : "null/web/module/logs/pageSystemLog.action",
+								"target" : "mainFrame"
+							}],
+							"name" : "日志查询",
+							"active" : 0,
+							"href" : "null/web/module/logs/pageAuthLog.action",
+							"target" : "mainFrame"
+						}],
+				"name" : "视频管控中心",
+				"active" : 0,
+				"href" : "/vportal/web/gateway/gateway.action?menuId=2",
+				"target" : null
+			}, {
+				"menuId" : 3,
+				"parentId" : 0,
+				"data" : [{
+							"menuId" : 131,
+							"parentId" : 3,
+							"data" : null,
+							"name" : "地图配置",
+							"active" : 0,
+							"href" : "null/baseline/config/index.jsp",
+							"target" : "mainFrame"
+						}, {
+							"menuId" : 130,
+							"parentId" : 3,
+							"data" : null,
+							"name" : "地图应用",
+							"active" : 0,
+							"href" : "null/baseline/app/index.jsp",
+							"target" : "mainFrame"
+						}],
+				"name" : "地图应用",
+				"active" : 0,
+				"href" : "/vportal/web/gateway/gateway.action?menuId=3",
+				"target" : null
+			}, {
+				"menuId" : 113,
+				"parentId" : 0,
+				"data" : null,
+				"name" : "视频网管",
+				"active" : 0,
+				"href" : "/vportal/web/gateway/gateway.action?menuId=113",
+				"target" : null
+			}, {
+				"menuId" : 133,
+				"parentId" : 0,
+				"data" : null,
+				"name" : "一级菜单自定义",
+				"active" : 0,
+				"href" : null,
+				"target" : null
+			}]]
+}

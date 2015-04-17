@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
+        <title>EasyUI Demo</title>
+        <script type="text/javascript" src="jquery-easyui-1.4.2/jquery.min.js"></script>
+        <!-- 公共样式引用 -->
+        <link href="fav.ico" rel="shortcut icon"/>
+        <link href="baseui/themes/default/css/reset.css" rel="stylesheet"/>
+        <link href="baseui/themes/default/css/grids.css" rel="stylesheet"/>
+        <link href="baseui/themes/default/css/base.css" rel="stylesheet"/>
+        <link href="baseui/themes/lightblue/css/base.css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/themes/default/easyui.css"/>
+        <!--[if lt IE 9]>
+                                <link href="baseui/themes/default/css/ie.css" rel="stylesheet"/>
+        <![endif]-->
+        <!-- UI 1.2.0框架样式，必须在base.css之后引用，否则样式会错误 -->
+        <link href="web/assets/default/css/baseV1.2.0.css" rel="stylesheet"/>
+        <link href="baseui/js/plugins/popup/skin/default/pop.css" rel="stylesheet"/>
+        <!-- 公共js引用 -->
+        <script src="baseui/js/language/messages_zh_cn.js" type="text/javascript" ></script>
+        <script src="baseui/js/plugins/jquery.js"></script>
+        <script src="baseui/js/plugins/jquery-ui.js"></script>
+        <script src="baseui/js/plugins/underscore.js"></script>
+        <script src="baseui/js/jquery-override.js"></script>
+        <script src="baseui/js/plugins/bootstrap.js"></script>
+        <script type="text/javascript" src="jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+        <script src="baseui/js/plugins/ui/jquery.bgiframe.js"></script>
+        <script src="baseui/js/plugins/ui/jquery.placeholder.js"></script>
+        <script src="baseui/js/plugins/ui/jquery.tipsy.js"></script>
+        <script src="baseui/js/plugins/ztree/jquery.ztree.core.js"></script>
+        <script src="baseui/js/plugins/ztree/jquery.ztree.excheck.js"></script>
+        <script src="baseui/js/jquery.ztree-override.js"></script>
+        <script src="baseui/js/plugins/popup/pop.js"></script>
+        <script src="baseui/js/jquery-ui-override.js"></script>
+        <script src="baseui/js/plugins/forms/jquery.form.js"></script>
+        <script src="baseui/js/plugins/forms/jquery.validate.js"></script>
+        <script src="baseui/js/index.js"></script>
+        <script src="baseui/js/plugins/ui/jquery.tmpl.js"></script>
+        <script src="web/assets/js/global.js"></script>
+        <script src="web/assets/js/menu.js"></script>
+        <script src="web/assets/js/position.js"></script>
+        <script src="baseui/js/plugins/ui/jquery.breadcrumbs.js"></script>
+        <script type="text/javascript">
+        </script>
+        <style type="text/css" media="screen">
+        .panel-body {background-color: transparent; border-width: 0px;} 
+         .north{ height: 95px; line-height:20px;}
+         /* #navbar{top:60px;} */
+         /* #content{top:35px;} */
+         /* body.hasCopyright #content {bottom: 29px;} */
+          .south{height: 29px;bottom: 0; background: #EFF0F0;}
+          .copyright { border-top: 1px solid #CBCBCB; color: #999; padding: 5px 10px; text-align: center; }
+          .panel-body-noheader {border-top-width: 0px; } 
+            
+          .north>.wrapper{background: #3f85e4;height: 62%;border-bottom: 1px solid #2468c5;}
+
+          </style>
+    </head>
+    <!--1. 在整个页面创建布局面板-->
+    <body class="easyui-layout">
+        <!--1.1 egion="north"，指明高度，可以自适应-->
+        <div region="north" class="north" >
+            <div class="wrapper layout">
+                <!-- <a class="logo" href="#"></a> -->
+                <!-- Left top nav -->
+                <div class="leftNav">
+                    <h2>
+                    <a href="web/gateway/index.action">统一安全平台</a>
+                    </h2>
+                    <ul id="navMenu" class="userNav topNav">
+                        <li  class="active"  ><a href="web/gateway/gateway.action?menuId=1" ><span>视频配置中心</span></a>
+                            <ul>
+                                <li  class="active"  ><a href="web/gateway/gateway.action?menuId=1" >视频配置中心</a></li>
+                                <li  ><a href="web/gateway/gateway.action?menuId=2" >视频应用中心</a></li>
+                                <li  ><a href="web/gateway/gateway.action?menuId=3" >GIS地图</a></li>
+                                <li  ><a href="web/gateway/gateway.action?menuId=113" >视频网管</a></li>
+                                <li  ><a href="rr" target="_blank" >rr</a></li>
+                            </ul></li>
+                        </ul>
+                    </div>
+                    <!-- Right top nav -->
+                    <ul class="userNav">
+                        <li><a href="web/gateway/index.action" class="nav_home nav_icon" title="首页">首页</a></li>
+                        <li class="uName"><a href="javascript:void(0);" class="nav_user nav_icon"><span>admin</span></a>
+                            <ul style="display: none;">
+                                <li class="i-profile"><a href="javascript:void(0);" onclick="personalCenter('1')"><i></i><span>基本信息</span></a></li>
+                                <li class="i-password"><a href="javascript:void(0);" onclick="personalCenter('2')"><i></i><span>修改密码</span></a></li>
+                                <li class="i-exit"><a href="javascript:void(0);" onclick="logout()"><i></i>退出</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="i-help"><a href="/help/help.html" target="_blank">帮助</a></li> 帮助功能暂不使用-->
+                        <li class="i-version"><a href="javascript:void(0);" class="nav_info nav_icon" title="版本信息">版本信息</a>
+                            <div id="version_show_div" style="display:none;"></div>
+                        </li>
+                    </ul>
+                    <div class="topSearch">
+                        <div class="bd">
+                            <input type="text" id="keyword" class="keyword" placeholder="请输入要搜索的内容"><input type="button" class="searchBtn" onclick="search()" value="查询">
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+            </div>
+
+                <div id="navbar" class="layout" >
+                    <div class="mainNav">
+                        <ul class="nav clearfix">
+                            <li class="active">
+                                <a menuCode="4" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/organization/org-index.action')" >
+                                <i></i>
+                                <span >组织555管理</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="22" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/organization/org-index.action')" ><i></i><span >组织</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="23" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/organization/view/userdefined-view-index.action')" ><i></i><span >自定义视图</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li >
+                                <a menuCode="5" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/privilege/user/user-index.action')" >
+                                <i></i>
+                                <span >用户管理</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="24" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/privilege/user/user-index.action')" ><i></i><span >用户</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="25" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/privilege/role/list-role-index.action')" ><i></i><span >角色</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="26" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/privilege/online/list_online_index.action')" ><i></i><span >在线用户</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li >
+                                <a menuCode="6" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/servicemanager/list.action')" >
+                                <i></i>
+                                <span >服务管理</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="27" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/servicemanager/list.action')" ><i></i><span >服务配置</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="28" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/serviceman/server/list.action')" ><i></i><span >服务器</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="29" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/serviceman/net_domain/list.action')" ><i></i><span >网域配置</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li >
+                                <a menuCode="13" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/guide/guide.action')" >
+                                <i></i>
+                                <span >资源管理</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="46" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/deviceInfo/page-deviceInfoAction-onDeviceInfoBo.action')" ><i></i><span >编码设备</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="47" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/decodeResource/page-decodeResourceAction-onDecodeResource.action')" ><i></i><span >解码设备</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="55" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/extradevice/alarmdevice/page-alarmDevice.action')" ><i></i><span >报警主机</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="48" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/matrix/page-matrixAction-onMatrix.action')" ><i></i><span >视频综合平台</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="49" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/extradevice/intel/page-intelDevice.action')" ><i></i><span >智能分析仪</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="50" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/cameraInfo/cameraInfo.action')" ><i></i><span >监控点</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="128" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/streamMediaAllot/globalConfigView.action')" ><i></i><span >取流配置</span></a>
+                                            <ul>
+                                                <li>
+                                                    <a menuCode="58" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/streamMediaAllot/globalConfigInput.action')" ><i></i><span >全局配置</span></a>
+                                                </li>
+                                                <li>
+                                                    <a menuCode="59" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/streamMediaAllot/listAssignGroup.action')" ><i></i><span >组织配置</span></a>
+                                                </li>
+                                                <li>
+                                                    <a menuCode="60" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/streamMediaAllot/listAssignSpot.action')" ><i></i><span >监控点配置</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a menuCode="51" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/alarmIo/deviceAlarmInfo.action')" ><i></i><span >报警器</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="129" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/pagePool.action')" ><i></i><span >存储池</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="54" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/decodegroup/list.action')" ><i></i><span >电视墙</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="52" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/audioIo/deviceAudioInfo.action')" ><i></i><span >对讲通道</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="56" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/datamanage/chooseResourceTransType.action')" ><i></i><span >资源迁移</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="110" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/resourceRelation/resourceRelationIndex.action')" ><i></i><span >关联资源配置</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="111" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/resource/deviceAccess/pageXag.action')" ><i></i><span >设备接入配置</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li >
+                                <a menuCode="15" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/forward_guide.action')" >
+                                <i></i>
+                                <span >录像配置</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="63" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/forward_guide.action')" ><i></i><span >配置面板</span></a>
+                                            <ul>
+                                                <li>
+                                                    <a menuCode="66" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/detail_viewDefault.action')" ><i></i><span >默认参数 </span></a>
+                                                </li>
+                                                <li>
+                                                    <a menuCode="67" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/list-scheduleTemplate-week.action?entity.type=2')" ><i></i><span >录像计划时间模板</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a menuCode="64" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/pageBill.action')" ><i></i><span >录像计划单</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="65" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/storage/pageCameraResult.action')" ><i></i><span >配置结果查询</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li >
+                                <a menuCode="17" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/global-guide.action')" >
+                                <i></i>
+                                <span >告警配置</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="68" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/global-guide.action')" ><i></i><span >配置面板</span></a>
+                                            <ul>
+                                                <li>
+                                                    <a menuCode="74" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/view-default.action')" ><i></i><span >默认参数</span></a>
+                                                </li>
+                                                <li>
+                                                    <a menuCode="75" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/list-scheduleTemplate.action')" ><i></i><span >联动时间模板</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a menuCode="69" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/list-camera.action')" ><i></i><span >监控点告警配置单</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="70" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/list-io.action')" ><i></i><span >报警器告警配置单</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="71" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/list-intel.action')" ><i></i><span >智能告警配置单</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="73" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm4extra/list.action?sourceType=502200')" ><i></i><span >防区告警配置单</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="72" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/vmcc/web/module/alarm/search-camera.action')" ><i></i><span >配置结果查询</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li >
+                                <a menuCode="8" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/ezviz/page.action')" >
+                                <i></i>
+                                <span >系统配置</span>
+                                </a>
+                                <div class="ddmenu">
+                                    <ul>
+                                        <li>
+                                            <a menuCode="119" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/ezviz/page.action')" ><i></i><span >萤石云配置</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="35" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/constant/findSysParamlist.action?code=030708')" ><i></i><span >系统参数设置</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="34" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/resourcetype/listResType.action')" ><i></i><span >资源类型管理</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="37" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/menu/list.action')" ><i></i><span >自定义菜单</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="33" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/function/functionTree.action')" ><i></i><span >功能管理</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="36" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/syc/toSyc.action')" ><i></i><span >数据同步</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="45" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/databackups/list.action')" ><i></i><span >数据备份</span></a>
+                                        </li>
+                                        <li>
+                                            <a menuCode="39" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/themeconfig/themeConfig.action')" ><i></i><span >界面风格配置</span></a>
+                                            <ul>
+                                                <li>
+                                                    <a menuCode="43" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/themeconfig/themeConfig.action')" ><i></i><span >界面风格</span></a>
+                                                </li>
+                                                <li>
+                                                    <a menuCode="44" href="javascript:void(0)" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/config/cuupload/toUploadCu.action')" ><i></i><span >客户端更新</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="shadow"></div>
+                    </div>
+                </div>
+                <!-- Navbar ends -->
+            </div>
+
+            <!--1.3region="center",这里的宽度和高度都是由周边决定，不用设置-->
+            <div region="center" split="true"> 
+
+              <div id="cc" class="easyui-layout" fit="true">  
+                 <div region="north">
+                     <div class="breadLine">
+                        <ul class="breadcrumbs auto-navigation" menu-code="22">
+                            <li class="active"><a href="/vportal/web/gateway/gateway.action?menuId=1"><span>视频配置中心</span></a>
+                                <ul>
+
+                                    <li class="active"><a href="/vportal/web/gateway/gateway.action?menuId=1">视频配置中心</a></li>
+
+                                    <li><a href="/vportal/web/gateway/gateway.action?menuId=2">视频应用中心</a></li>
+
+                                    <li><a href="/vportal/web/gateway/gateway.action?menuId=3">GIS地图</a></li>
+
+                                    <li><a href="/vportal/web/gateway/gateway.action?menuId=113">视频网管</a></li>
+
+                                    <li><a href="rr" target="_blank">rr</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="active">
+                                <a menucode="4" href="javascript:void(0);" onclick="openUrl(3, 'http://10.17.48.93:80/cms/web/module/organization/org-index.action')">
+                                <i></i>
+                                <span>组织管理</span>
+                                </a>
+                            </li>
+                            <li><i></i><span>组织</span></li>
+                        </ul>
+                    </div>
+                 </div>
+                 <div region="center" style="overflow:hidden;">
+                     <div class="wrapper grid-m">
+                                    <div class="col-main">
+                                        <div class="main-wrap">
+                                            <!-- <iframe id="mainFrame" name="mainFrame" src="http://10.17.48.93:80/cms/web/module/organization/org-index.action?ticket=ST-4223-Y5IGQJQPnvWknJMvHi66-cas" frameborder="0" class="autoIframe"></iframe> -->
+                                            <iframe id="mainFrame" name="mainFrame" src="easyui_zuzhiguanli.html" frameborder="0" class="autoIframe" ></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                 </div>  
+              </div>
+                
+                <!-- Content begins -->
+                <!-- <div id="content" class="layout">
+                
+                                
+                            </div> -->
+            </div>
+                        <!--1.5 region="south"，指明高度，可以自适应-->
+                        <div region="south" class="south">
+                            <div class="wrapper">
+                                    <div class="copyright">
+                                        
+                                        <img src="./data/image/temp/copyRightLogo.png" style="vertical-align: middle;height:10px;width:74px" alt="">111111111111111111111111111111
+                                        
+                                    </div>
+                                </div>
+                        </div>
+                    </body>
+                </html>

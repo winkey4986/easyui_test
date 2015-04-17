@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<%@page import="com.hikvision.hikframework.gateway.bo.*"%>
+<%@page import="com.hikvision.hikframework.gateway.bo.menu.*"%>
+<%@page import="com.ivms6.core.util.StringUtils"%>
+<%@page import="org.apache.commons.lang3.StringEscapeUtils"%>
+<%@page import="com.ivms6.core.util.CollectionUtils"%>
+<%@page import="com.hikvision.hikframework.gateway.util.VportalConstants"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.hikvision.swdf.www.action.View"%>
+<%@page import="com.hikvision.swdf.extend.impl.view.ViewHelper"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+<head>
+<%@ include file="/vportal/common/commons-index.jsp" %>
+<link href="${ctx}/web/assets/default/css/home.css" rel="stylesheet"/>
+<s:if test="theme.style != 'default'">
+<link href="${ctx}/web/assets/${theme.style}/css/home.css" rel="stylesheet"/>
+</s:if>
+<script type="text/javascript">
+if (self != top) {
+	var url= window.location.href;
+	if(url.indexOf('?')>0){
+		url = url.substring(0,url.indexOf('?'));
+	}
+	top.location.href = url;
+}
+</script>
+</head>
+
+<body class="home <s:if test='theme.copyright.show'>hasCopyright</s:if>">
+<div id="wrapper">
+	<%@ include file="/vportal/common/commons-menu-top.jsp" %>
+
+    <!-- Content begins -->
+    <div id="content" class="layout">
+        <div class="wrapper">
+    <div id="dashboard" class="block block-blank">
+    <div class="bd">
+    <div class="tab-container">
+    <div class="allApps">
+        <div class="slider">
+            <div class="box">
+                <ul>
+                    <%List<QuickMenuPage> pages = (List<QuickMenuPage>)request.getAttribute("quickMenuPage");
+                      if(CollectionUtils.isNotEmpty(pages)){
+                      	  for(QuickMenuPage np : pages){
+                     %>
+                     <li class="clearfix">
+                     <% 	  for(QuickMenuModule module : np.getModules()){
+                     %>
+                     <div class="dashpanel">
+                     	<div class="title">
+                            <h3><%=StringEscapeUtils.escapeHtml4(module.getName())%></h3>
+                        </div>
+                     <%               for(QuickMenuBO item : module.getItems()){
+                                          if(!item.isBlank()){
+                     %>
+                                          <div class="item <% if(item.isNewline()){%>clear<%}%>">
+                                              <a href="<%=item.getHref()%>" class="<%=item.getStyle()%>">
+                                              	<img src="${ctx}<%=item.getIcon()%>" alt="">
+                                              	<h6><%=StringEscapeUtils.escapeHtml4(item.getName()) %></h6>
+                        						<p><%=StringEscapeUtils.escapeHtml4(item.getName()) %></p>
+                        					  </a>
+                                          </div>
+                     <%                   }else{
+                     %>
+                                          <div class="item blank <% if(item.isNewline()){%>clear<%}%>">
+				                       		 <a href="javascript:void(0);"></a>
+				                          </div>
+                     <%
+                                          }
+                                      }
+                     			 
+                     
+                     %></div>
+                     <%
+                              }
+                     %>
+                     </li>
+                     <%   }  
+                      }
+                    %>
+            </ul>
+            </div>
+            <div class="switchable-nav">
+                <a class="prev" href="#">上一页</a><a class="next" href="#">下一页</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    	<div id="template"></div>
+    </div>
+    <!-- Content ends -->
+    <!-- Footer begins -->
+    <div id="footer">
+        <div class="wrapper">
+            <div class="copyright">
+            	<s:if test="theme.copyright.show">
+            	<s:if test="theme.copyright.logo != ''"><i class="logo"></i></s:if>${theme.copyright.title}
+            	</s:if>
+            </div>
+        </div>
+    </div>
+    <!-- Footer ends -->
+</div>
+<!-- 以下为当前页脚本 -->
+<script src="${ctx}/baseui/js/plugins/ui/jquery.switchable.js"></script>
+<script src="${ctx}/baseui/js/plugins/ui/jquery.iscroll.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$('#template').load(pt.ctx+'/web/gateway/wizard/template.action');
+        if($('#alarmList li').length > 9) {
+            $('#alarmList').unbind('append').iscroll();
+        }
+        $('#alarmList').bind('append',function(){
+            if($('li', this).length > 9) {
+                $(this).unbind('append').iscroll();
+            }
+        });
+        $('.slider').each(function(idx,slider){
+            if($('.box li',slider).length > 0) {
+                $(slider).switchable({
+                    triggers: '&bull;',
+                    putTriggers: 'insertAfter',
+                    panels: $(slider).find('.box li'),
+                    effect: 'scrollLeft',
+                    easing: 'ease-in-out',
+                    loop: true,
+                    prev: $(slider).find('.prev'),
+                    next: $(slider).find('.next'),
+                    onSwitch: function(event, currentIndex) {
+                        var api = this;
+                        api.prevBtn.toggleClass('disabled', currentIndex === 0);
+                        api.nextBtn.toggleClass('disabled', currentIndex === api.length - 1);
+                    }
+                });
+                if($('.box li',slider).length > 1) {
+                    $('.switchable-nav',slider).show();
+                }
+            }else{
+                $(slider).hide();
+            }
+        });
+    	$('.topNav').xBreadcrumbs();
+    });
+</script>
+</body>
+</html>

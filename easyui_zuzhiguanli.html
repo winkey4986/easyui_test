@@ -1,0 +1,538 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<script type="text/javascript">
+    var pt = {
+        ctx: "/cms",
+        debug: 'true'=='true'?true:false,
+        lang: 'zh_cn',
+        history: "" == "true" ? true : false
+    };
+</script>
+<title>hikvision</title>
+<link href="fav.ico" rel="shortcut icon"/>
+<link href="baseui/themes/default/css/reset.css" rel="stylesheet"/>
+<link href="baseui/themes/default/css/grids.css" rel="stylesheet"/>
+<link href="baseui/themes/default/css/base.css" rel="stylesheet"/>
+<!--[if lt IE 9]>
+    <link href="baseui/themes/default/css/ie.css" rel="stylesheet"/>
+<![endif]-->
+
+    <link href="baseui/themes/lightblue/css/base.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/themes/default/easyui.css"/>
+
+
+<script src="baseui/js/plugins/jquery.js"></script>
+<script src="baseui/js/plugins/bootstrap.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+<script src="baseui/js/plugins/ui/jquery.bgiframe.js"></script>
+<script src="baseui/js/plugins/ui/jquery.placeholder.js"></script>
+<script src="baseui/js/plugins/ui/jquery.tipsy.js"></script>
+<script src="baseui/js/plugins/ztree/jquery.ztree.core.js"></script>
+<script src="baseui/js/plugins/ztree/jquery.ztree.excheck.js"></script>
+<script src="baseui/js/plugins/underscore.js"></script>
+<script src="baseui/js/jquery-override.js"></script>
+<script src="baseui/js/jquery.ztree-override.js"></script>
+
+
+<script type="text/javascript" src="baseui/js/language/messages_zh_cn.js"></script>
+<script src="baseui/js/plugins/ui/jquery.breadcrumbs.js"></script>
+<script src="baseui/js/plugins/ui/jquery.resize.js"></script>
+<script src="baseui/js/plugins/jquery-ui.js"></script>
+<script src="baseui/js/plugins/base.js"></script>
+<script src="baseui/js/plugins/sea.js"></script>
+<script src="baseui/js/plugins/ui/jquery.cookie.js"></script>
+<script src="baseui/js/plugins/forms/jquery.uniform.js"></script>
+<script src="baseui/js/plugins/forms/jquery.form.js"></script>
+<script src="baseui/js/plugins/forms/jquery.validate.js"></script>
+<script src="baseui/js/plugins/forms/jquery.ibutton.js"></script>
+<script src="baseui/js/plugins/ui/jquery.ipaddress.js"></script>
+<script src="baseui/js/sea-override.js"></script>
+<!--<script src="baseui/js/plugins/ui/jquery.alerts.js"></script>
+<script src="baseui/js/plugins/ui/jquery.sticky.js"></script>-->
+<script src="baseui/js/jquery-override.js"></script>
+<script src="baseui/js/jquery-ui-override.js"></script>
+<script src="baseui/js/utils/json2.js"></script>
+<script src="baseui/js/utils/CookieStorage.js"></script>
+<script src="baseui/js/utils/UserDataStorage.js"></script>
+<script src="baseui/js/auto-parser.js"></script>
+<script src="baseui/js/page.js"></script>
+<script src="js/common.js"></script>
+<script>
+   
+   var ctx = "/cms";
+   $(function(){
+       $(".buttonS[data-toggle=filter]").click(function(){
+          setTimeout(function() {
+               var firstInput = $(".form-horizontal input:first");
+               firstInput.focus();  
+          },0)
+           
+       })
+   })
+</script>
+    <link href="web/assets/default/css/organization.css" rel="stylesheet"/>
+    
+    <link href="baseui/themes/lightblue/css/organization.css" rel="stylesheet"/>
+    
+    <script src="baseui/js/plugins/ztree/jquery.ztree.exedit.js"></script>
+    <!-- 以下为当前页脚本 -->
+    <script type="text/javascript">
+        var startPage = 1;
+        var treeSelectId = '';
+        
+            var zTree1;
+            
+            function loadTree1(selectId){
+                var setting = {
+                        ajax:{
+                            url:"web/module/organization/getTree.action?id=1",
+                            success:function(){
+                                var treeId = 1
+                                
+                                if(selectId == ''){
+                                    node = zTree1.getNodes()[0];
+                                }else{
+                                    node = zTree1.getNodeById(treeId+'_'+selectId);
+                                }
+                                if(!node){
+                                    node = zTree1.getNodes()[0];
+                                }
+                                
+                                zTree1.selectNode(node);
+                                //zTree1.expandAll(true);
+                            }
+                        },
+                        callback:{
+                            onClick:function(event, treeId, treeNode){
+                                treeSelectId = treeNode.extra.realId;
+                            },
+                            beforeDrag:function(treeId,treeNode){
+                            },
+                            onDrag:function(event, treeId, treeNodes){
+                            },
+                            beforeDrop:function(treeId, treeNodes, targetNode, moveType){
+                                var movedName = treeNodes[0].label;
+                                var movedId = treeNodes[0].extra.realId;
+                                var targetName = targetNode.label;
+                                var targetId = targetNode.extra.realId;
+                                
+                                var preNode = treeNodes[0].getPreNode();
+                                var nextNode;
+                                var parentNode;
+                                if(!preNode){
+                                    nextNode = treeNodes[0].getNextNode();
+                                    if(!nextNode){
+                                        parentNode = treeNodes[0].getParentNode();
+                                    }
+                                }
+                                
+                                var moveBackNode = function(){
+                                    var tree = $.fn.zTree.getZTreeObj(treeId);
+                                    if(preNode){
+                                        tree.moveNode(preNode, treeNodes[0], "next");
+                                    }else if(nextNode){
+                                        tree.moveNode(nextNode, treeNodes[0], "prev");
+                                    }else if(parentNode){
+                                        tree.moveNode(parentNode, treeNodes[0], "inner");
+                                    }
+                                }
+                                
+                                jConfirm('确定要将 组织:'+movedName+' 移动到 组织:'+targetName+' 下面吗?','移动组织',function(r){
+                                    if(r){
+                                        $.ajax({
+                                            url:'web/module/organization/moveOrg.action',
+                                            type:'post',
+                                            data:{
+                                                movedId:movedId ,
+                                                targetId:targetId 
+                                            },
+                                            dataType:'json',
+                                            success : function(result){
+                                                if(result.msg && result.msg == 'success'){
+                                                    $.sticky("移动组织成功!",{type:"ok"});
+                                                }else{
+                                                    var errorMsg = '';
+                                                    if(result.fieldErrors['organization.orgName']){
+                                                        errorMsg = result.fieldErrors['organization.orgName'];
+                                                    }else{
+                                                        errorMsg = result.actionErrors[0];
+                                                    }
+                                                    parent.$.sticky("错误！ "+errorMsg,{type:"error"});
+                                                    moveBackNode();
+                                                }
+                                            }
+                                        })
+                                    }else{
+                                        moveBackNode();
+                                    }
+                                });
+                            },
+                            onDrop:function(event, treeId, treeNodes, targetNode, moveType){
+                            }
+                        },
+                        edit:{
+                            drag:{
+                                isMove:true,
+                                prev:false,
+                                inner:true,
+                                next:false
+                            },
+                            enable:true,
+                            showRemoveBtn: false,
+                            showRenameBtn: false
+                        }
+                    };
+                zTree1 = $("#zTree1").tree(setting);
+            }
+        
+        
+        function load(index,selectId){
+            if(index == 1){
+                loadTree1(selectId);
+            }else if(index == 2){
+                loadTree2(selectId);
+            }else if(index == 3){
+                loadTree3(selectId);
+            }
+        }
+        
+        function getSelectTreeId(tree){
+            var nodes = tree.getSelectedNodes();
+            var ids = [];//有3个数值,ids[0]=nodes.id;ids[1]=nodes.extra.realId;ids[2]=nodes.extra.order
+            if(nodes.length >0){
+                ids.push(nodes[0].id);
+                ids.push(nodes[0].extra.realId);
+                ids.push(nodes[0].extra.order);
+            }
+            return ids;
+        }
+        
+        function getSelectTreeName(tree){
+            var nodes = tree.getSelectedNodes();
+            if(nodes.length <=0){
+                return -1;
+            }
+            return nodes[0].label;
+        }
+        
+        function checkNodeIsDomain(tree,selectId){
+            var node = tree.getNodeById(selectId);
+            if(node.extra.type == 'domain'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        function checkNodeNotParent(tree,selectId){
+            var node = tree.getNodeById(selectId);
+            if(node.children && node.children.length >0){
+                return false;
+            }else{
+                return true;
+            }
+            
+        }
+        
+        function checkTreeHavedChildren(tree){
+            var domain = tree.getNodes()[0];
+            if(domain.children.length >0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        //删除组织树
+        function delOrgTree(tree,delTreeId,userTree){
+            if(userTree == 0){
+                jAlert('该树被设置为用户管理，不能删除！','提示','attention');
+                return;
+            }
+            if(checkTreeHavedChildren(tree)){
+                jAlert('所要删除的树存在子节点，不能删除！','提示','attention');
+                return;
+            }
+            
+            
+            jConfirm('确认要删除吗？<br>如果该树被用于用户(资源)管理,管理将不可用！','删除组织树',function(r){
+                if(r){
+                    $.ajax({
+                        url:'web/module/organization/delOrgTree.action',
+                        type:'post',
+                        data:{
+                            id:delTreeId
+                        },
+                        dataType:'json',
+                        success : function(result){
+                            if(result.msg && result.msg == 'success'){
+                                parent.$.sticky("删除成功",{type:"ok"});
+                                $.history('web/module/organization/listOrgTree.action?start='+startPage);
+                            }else{
+                                parent.$.sticky("错误！ "+result.actionErrors[0],{type:"error"});
+                            }
+                        }
+                    })
+                }else{
+                    return;
+                }
+            });
+        }
+        
+        //增加组织树
+        function addOrgTree(){
+            $.pageSkip('web/module/organization/toOrgTreeAdd.action?start='+startPage);
+        }
+        
+        function modifyOrgTree(treeId,treeName){
+             $.pageSkip('web/module/organization/toModifyOrgTree.action?organizationTree.id='+treeId+'&start'+startPage+'&treeSelectId='+treeSelectId);
+        }
+        
+        //增加组织
+        function addOrg(tree,treeId){
+            var ids = getSelectTreeId(tree);
+            if(ids.length <=0){
+                jAlert('请选择要增加的父节点','提示','attention');
+                return;
+            }
+            var id = ids[0];
+            var parentId = ids[1];
+            
+            var name = getSelectTreeName(tree);
+            $.pageSkip('web/module/organization/toAddOrg.action?id='+parentId+"&organizationTree.id="+treeId+"&start="+startPage+'&treeSelectId='+parentId);
+        }
+        
+        
+        //修改组织
+        function modifyOrg(tree,treeId){
+            var ids = getSelectTreeId(tree);
+            if(ids.length <=0){
+                jAlert('请选择要编辑的节点','提示','attention');
+                return;
+            }
+            var id = ids[0];
+            var modifyId = ids[1];
+            
+            var name = getSelectTreeName(tree);
+            //top.$.navigation.add(name, 'web/module/organization/listOrgTree.action?start='+startPage+'&treeSelectId='+modifyId, false,null,"组织管理");
+            if(checkNodeIsDomain(tree,id)){
+                //域不能修改
+                $.pageSkip('web/module/organization/toModifyDomain.action?id='+modifyId+'&start='+startPage+'&treeSelectId='+modifyId);
+                return;
+            }
+            $.pageSkip('web/module/organization/toModifyOrg.action?id='+modifyId+'&start='+startPage+'&treeSelectId='+modifyId);
+        }
+        
+        //上移组织
+        function upOrg(tree,loadIndex){
+            var ids = getSelectTreeId(tree);
+            if(ids.length <= 0){
+                jAlert('请选择要操作的节点','提示','attention');
+                return;
+            }
+            var id = ids[0];
+            var upId = ids[1];
+            var order = ids[2];
+            if(checkNodeIsDomain(tree,id)){
+                return;
+            }
+            
+            $.ajax({
+                url:"web/module/organization/upOrg.action?id="+upId+"&order="+order,
+                dataType:'json',
+                success:function(result){
+                    //load(loadIndex,upId);
+                    if(result.msg == 'success'){
+                        var node = tree.getSelectedNodes()[0];
+                        var preNode = node.getPreNode();
+                        if(node && preNode){
+                            var tempOrder = node.extra.order;
+                            node.extra.order = preNode.extra.order;
+                            preNode.extra.order = tempOrder;
+                            tree.moveNode(preNode,node,'prev');
+                        }
+                    }else{
+                        if(result.fieldErrors && result.fieldErrors['org_order_is_error']){
+                            parent.$.sticky("错误！ "+result.fieldErrors['org_order_is_error'],{type:"error"});
+                        }
+                    }
+                }
+            });
+        }
+        
+        //下移组织
+        function downOrg(tree,loadIndex){
+            var ids = getSelectTreeId(tree);
+            if(ids.length <= 0){
+                jAlert('请选择要操作的节点','提示','attention');
+                return;
+            }
+            var id = ids[0];
+            var downId = ids[1];
+            var order = ids[2];
+            if(checkNodeIsDomain(tree,id)){
+                return;
+            }
+            
+            $.ajax({
+                url:"web/module/organization/downOrg.action?id="+downId+"&order="+order,
+                dataType:'json',
+                success:function(result){
+                    //load(loadIndex,downId);
+                    if(result.msg == 'success'){
+                        var node = tree.getSelectedNodes()[0];
+                        var nextNode = node.getNextNode();
+                        if(node && nextNode){
+                            var tempOrder = node.extra.order;
+                            node.extra.order = nextNode.extra.order;
+                            nextNode.extra.order = tempOrder;
+                            tree.moveNode(nextNode,node,'next');
+                        }
+                    }else{
+                        if(result.fieldErrors && result.fieldErrors['org_order_is_error']){
+                            parent.$.sticky("错误！ "+result.fieldErrors['org_order_is_error'],{type:"error"});
+                        }
+                    }
+                }
+            });
+        }
+        
+        //删除组织
+        function delOrg(tree,loadIndex){
+            
+            
+            var ids = getSelectTreeId(tree);
+            if(ids.length <= 0){
+                jAlert('请选择要操作的节点','提示','attention');
+                return;
+            }
+            var id = ids[0]
+            var delId = ids[1];
+            
+            if(!checkNodeNotParent(tree,id)){
+                jAlert('存在子组织,不能删除！','提示','attention');
+                return;
+            }
+            
+            if(checkNodeIsDomain(tree,id)){
+                //域不能删除
+                jAlert('顶级组织节点不能删除！','提示','attention');
+                return;
+            }
+            
+            jConfirm('确认要删除当前选中记录吗？','删除组织',function(r){
+                if(r){
+                    var url = "web/module/organization/delOrg.action?id="+delId;
+                    $.ajax({
+                        url:url,
+                        success:function(msg){
+                            if(typeof(msg) == 'object'){
+                                load(loadIndex,'');
+                                parent.$.sticky("删除成功",{type:"ok"});
+                            }else if(typeof(msg) == 'string'){
+                                var result = $.parseJSON(msg);
+                                parent.$.sticky("错误！ "+result.actionErrors[0],{type:"error"});
+                            }
+                        }
+                    });
+                }else{
+                    return;
+                }
+            });
+        }
+        
+    
+        $(function () {
+            
+                loadTree1(+'');
+                $(window).trigger('resize');
+            
+            
+            $("#front-page-btn").click(function(){
+                if(startPage >0){
+                    window.location.href='web/module/organization/listOrgTree.action?start='+(startPage-1);
+                }
+            })
+            
+            $("#next-page-btn").click(function(){
+                
+            })
+             $('#import-btn').click(function(){
+                    $.pageSkip('web/module/organization/importOrg-goImportPage.action');
+              })
+        });
+        
+        //js调整block的宽度
+        $(window).resize(function(){
+            $('.ztree').each(function(idx,ztree){
+                var wd = $(this).parents('.block-tape').width()-34;
+                $(this).css('width',wd);
+            });
+        }).trigger('resize');
+
+    </script>
+    <style type="text/css" media="screen">
+          .panel-body-noheader {border-top-width: 0px; } 
+    </style>
+</head>
+    <body class="easyui-layout" fit="true">
+        <div region="center" class="page withFixed">
+            <div class="wrapper">
+            <div class="breadline displayNone">
+                <ul class="breadcrumbs auto-navigation" menu-code="22">
+                </ul>
+            </div>
+            
+            <div class="organization">
+                <div class="box clearfix">
+                    
+                        
+                            <div class="block block-tape org-editable org-enable">
+                                <div class="hd">
+                                    <h3>已启用</h3>
+                        
+                        
+                                    <span class="more"><a class="close tipS" href="javascript:delOrgTree(zTree1,1,0)" title="删除">×</a></span> 
+                                    <span class="shadow-left"></span><span class="shadow-right"></span>
+                                </div>
+                                <div class="bd">
+                                    <div class="form-horizontal">
+                                        <fieldset>
+                                            <legend>用户树 <span class="action"><a href="javascript:modifyOrgTree(1,'用户树')" class="tipS" title="编辑"><i class="ico i-edit"></i>编辑</a></span></legend>
+                                            <div class="control-group">
+                                                <label class="control-label">用于：</label>
+                                                <div class="controls">用户管理 &nbsp; 资源管理 &nbsp; </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">描述：</label>
+                                                <div class="controls">系统的初始化的用户树,可以直接设置为资源树用于管理....资源!</div>
+                                            </div>
+                                            <div class="treeview">
+                                                <div class="btn-toolbar clearfix">
+                                                    <a class="buttonS tipS" href="javascript:addOrg(zTree1,1)" title="添加"><span class="ico i-add"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:modifyOrg(zTree1,1)" title="编辑"><span class="ico i-edit"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:delOrg(zTree1,1)" title="删除"><span class="ico i-del"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:upOrg(zTree1,1)" title="上移"><span class="ico i-move-up"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:downOrg(zTree1,1)" title="下移"><span class="ico i-move-down"></span></a>
+                                                    <a id="import-btn" class="buttonS" href="###;"><span class="ico i-device-import"></span><span>导入</span></a>
+                                                </div>
+                                                <ul class="ztree" id="zTree1" style="width: 532px;"><li id="zTree1_id_1_1" class="level0" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_1_switch" title="" class="button level0 switch root_open" treenode_switch=""></span><a id="zTree1_id_1_1_a" class="level0   curSelectedNode" treenode_a="" onclick="" target="_blank" style="" title="主控中心1"><span id="zTree1_id_1_1_ico" title="" treenode_ico="" class="button province_ico_open" style=""></span><span id="zTree1_id_1_1_span">主控中心1</span></a><ul id="zTree1_id_1_1_ul" class="level0 " style="display:block"><li id="zTree1_id_1_4" class="level1" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_4_switch" title="" class="button level1 switch center_docu" treenode_switch=""></span><a id="zTree1_id_1_4_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="组织2"><span id="zTree1_id_1_4_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span><span id="zTree1_id_1_4_span">组织2</span></a></li><li id="zTree1_id_1_3" class="level1" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_3_switch" title="" class="button level1 switch center_close" treenode_switch=""></span><a id="zTree1_id_1_3_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="组织添加测试"><span id="zTree1_id_1_3_ico" title="" treenode_ico="" class="button city_ico_close" style=""></span><span id="zTree1_id_1_3_span">组织添加测试</span></a></li><li id="zTree1_id_1_11" class="level1" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_11_switch" title="" class="button level1 switch bottom_docu" treenode_switch=""></span><a id="zTree1_id_1_11_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊顶顶顶顶顶点的顶"><span id="zTree1_id_1_11_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span><span id="zTree1_id_1_11_span">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊顶顶顶顶顶点的顶</span></a></li></ul></li></ul>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </body>
+</html>

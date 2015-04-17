@@ -1,0 +1,22 @@
+
+/* Video List */
+.video-player { margin-top: 10px; background: #f4f4f4; min-height: 200px; }
+.video-list { }
+.video-list .btn-toolbar { padding: 2px 0; }
+.video-list .quantity { line-height: 28px; display: block; }
+.video-list .quantity em { margin: 0 5px; font-style: normal; color: #ff6600; }
+.video-list ul { padding-top: 1px; border-top: 2px solid #B9B9B9; }
+.video-list ul li { margin: 0 0 1px; padding: 5px 5px 5px 45px; position: relative; min-height: 52px; }
+.video-list ul li:hover, .video-list ul li.hover { background: #DDEAFF; }
+.video-list ul li:hover a:hover, .video-list ul li.hover a:hover { color: #f60; }
+.video-list ul li.active { padding: 4px 4px 4px 44px; border: 1px solid #FFB951; background: #FFE6B0; color: #333; }
+
+.video-list ul li a.thumb { position: absolute; top: 5px; left: 5px; }
+.video-list ul li a.thumb i { position: absolute; left: 0; bottom: 0; }
+.video-list ul li a.thumb img { width: 32px; height: 32px; }
+.video-list ul li h4 { padding-top: 5px; font-size: 14px; width: 250px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.video-list ul li p { padding-bottom: 0; }
+.video-list ul li .more { position: absolute; top: 10px; right: 5px; display: none; }
+.video-list ul li:hover .more, .video-list ul li.hover .more { display: block; }
+.i-download { background-position: -123px -220px; }
+.i-alarm { background-position: -291px -171px; }

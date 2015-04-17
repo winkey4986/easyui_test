@@ -1,0 +1,208 @@
+body {background: url('../images/body_bg.png') repeat-x #f8f8f8;}
+
+/* # Top part
+================================================== */
+#top {background: #3f85e4; height: 59px; line-height:20px;border-bottom: 1px solid #2468c5;}
+
+/*=== Site navigation ===*/
+.topNav a,.userNav a { color: #fff; }
+
+/*=== User navigation ===*/
+ul.userNav { margin-right:230px;margin-top:23px;}
+ul.userNav li ul, #navMenu ul{ position: absolute;border-bottom: 1px solid #115bc1; background:url(../images/sprite.png) no-repeat 6px -105px; font-size: 12px; font-weight: normal; width: 120px; top: 13px; padding-top: 10px; display: none; }
+.topNav li ul li,ul.userNav li ul li {  border-left: 1px solid #115bc1;border-right: 1px solid #115bc1; border-top: 1px solid #115bc1 ; border-bottom:none;background: #1b61c5; }
+ul.userNav li ul li {width:140px;}
+ul.userNav li ul li a {color: #fff;line-height: 30px;}
+.topNav li ul li:hover a,ul.userNav li ul li:hover a,
+.topNav li ul li a:hover,ul.userNav li ul li a:hover { background-color: #2480d8;  }
+.topNav li ul li.active {background: #2480d8;}
+
+ul.userNav li.i-profile a:link i,ul.userNav li.i-profile a:visited i { background-position: 0px 0; }
+ul.userNav li.i-profile a:hover i { background-position: 0px -20px;}
+ul.userNav li.i-password a:link i,ul.userNav li.i-password a:visited i { background-position: 0px -40px; }
+ul.userNav li.i-password a:hover i { background-position: 0px -59px;}
+ul.userNav li.i-exit a:link i,ul.userNav li.i-exit a:visited i { background-position: 0px -78px; }
+ul.userNav li.i-exit a:hover i { background-position: 0px -99px;}
+
+/* # Header part
+================================================== */
+h1.title {width:600px;}
+
+/* === User Profile === */
+.uName {font-weight: normal;}
+
+/* === Search === */
+.topSearch {top:18px;right:20px;border: 1px solid #3375cf; width: 196px; height: 22px;}
+.topSearch .keyword {padding: 2px 10px;width: 168px;margin-left: 22px; }
+.topSearch .keyword:focus {padding: 2px 10px;}
+.topSearch .searchBtn {top: 0px; left: 3px;}
+.topSearch .shadow  {height:22px;}
+
+/* Layout Dropdown Stuff
+================================================== */
+.nav li.active a { background: #3874c7; color: #fff; font-weight: bold;   }
+.nav li.active li a { line-height: 32px; border: none;}
+ul.userNav li a i {background: url(../images/banner_admin_dropdown_info.png) no-repeat 0 -9999px;}
+.mainNav {background:white;height:32px;}
+.mainNav .nav li a {padding: 0 20px;line-height: 32px;display: block;color: #3874c7;}
+.mainNav .nav li:hover a, .mainNav .nav li.hover a {font-weight: bold;background: #3874c7;color: #fff;}
+.mainNav .nav li.active a {background:#3874c7;color:white;}
+
+
+/* # General styles
+================================================== */
+
+.leftNav { float: left; margin: 4px 0 0 15px;}
+.nav-logo {background: url(../images_1/logo.png); width: 48px; height: 48px; float: left;}
+.leftNav a { color:#FFFFFF!important; line-height: 48px; }
+.leftNav h2{line-height: 48px; float: left; margin-left: 10px; text-shadow:1px 1px 2px rgba(54,104,176,0.5); font-size: 26px; font-family: "微软雅黑"; font-weight: 600;}
+
+#wrapper {background:none;}
+#content {top:94px;}
+.home #content {top: 0;padding-top:80px;}
+#navbar {top:60px;border-bottom:1px solid #d2d2d2;}
+
+
+a.nav_icon { width: 16px; height: 16px; background:url(../images/nav_icons.png); background-repeat: no-repeat; float: left; text-indent: -100px; overflow: hidden;}
+a.nav_home:link, a.nav_home:visited {
+    background-position: -16px 0px;
+}
+a.nav_home:hover {
+    background-position: -16px -16px;
+}
+a.nav_user:link, a.nav_user:visited { width: auto; background-position: -48px 0px; text-indent: 0px; padding-left: 22px; color: #FFFFFF}
+a.nav_user:hover {background-position: -48px -16px; }
+
+a.nav_user span { padding-right: 17px; background:url(../images/arrow.png) right -13px no-repeat; }
+.hover a.nav_user span  {background-position: right -24px}
+a.nav_user:hover span { background-position: right -24px}
+.nav_info:link, a.nav_info:visited {
+    background-position: -32px 0px;
+}
+.nav_info:hover {
+    background-position: -32px -16px;
+}
+.nav_help:link, a.nav_help:visited {
+    background-position: 0px 0px;
+}
+.nav_help:hover {
+    background-position: 0px -16px;
+}
+
+
+.menu_nav_span { width: 32px; height: 32px; float: left; }
+#navMenu { float: left; font-size:16px; margin: 2px 0 0 7px;}
+#navMenu ul { top: 31px;}
+#navMenu ul li a { font-size: 16px; line-height: 35px; font-family: "微软雅黑";}
+#navMenu a span {padding-right: 17px;
+    background: url(../images/arrow.png) right -11px no-repeat;}
+#navMenu a:hover span { background-position: right -24px}
+/* edition */
+#edition { width: 480px; height: 465px;}
+#edition _top { background: #2a4faa;}
+#edition_title {}
+
+
+/* ------------------------ */
+
+
+/* 左侧导航条 */
+.grid-left {width:140px; float: left; height: 100%; background: #ababab; padding: 15px 10px 0 10px;}
+.grid-left dt { font-size: 14px;}
+.grid-left dd { margin-bottom: 10px;}
+.grid-left dd a{ line-height: 36px; text-align: center; color: #fff; display: block; border: 1px solid #FFFFFF}
+
+
+
+/*css in home.css*/
+.home .wrapper { width: 1160px;}
+
+.grid-m0s9 .col-sub {width: 238px;margin-left: -1160px;}
+.col-sub .hd {border-bottom: 1px solid #ffffff;}
+.col-sub .hd h3 {font-size: 14px;line-height: 30px;border-bottom: 1px solid #b5bfc4;padding-left: 10px;}
+.col-sub .hd a {position: absolute; right: 0px;color: #0066fe;top: 7px;}
+.col-sub .bd ul {padding-top: 15px;}
+.col-sub .text-list li {border: none;padding: 3px 0 3px 20px;}
+.col-sub .text-list .li_new {background: url('../images/new_info.png') 5px center;background-repeat: no-repeat;}
+.col-sub .text-list li a {font-weight:normal;display:block;}
+
+.grid-m0s9 .main-wrap {margin-right: 0px; margin-left: 260px; border: none;}
+.nav_content h2 a:link, .nav_content h2 a:visited {font-size: 14px; line-height: 31px;color: #fff;height: 31px;width: 144px;padding-left: 22px;background: url('../images/arrow_bg.png') no-repeat;display: block;}
+.nav_content h2 a span {padding-left: 15px;background: url('../images/arrow.png') 0px 3px no-repeat;}
+
+.nav_content ul {overflow: hidden;padding: 8px 0px 25px 88px;}
+.nav_content li {float: left;width: 84px;height: 112px;margin-right: 77px;margin-top: 12px;}
+.nav_content li.active a {color:#f60;}
+.icon_log {background: url('../images/icon_log.png'); background-repeat: no-repeat;text-align: center;float: left;width: 84px;height: 84px;line-height: 28px;position: relative;}
+a.dash-monitor:link,a.dash-monitor:visited {background-position: -168px -252px; }
+a.dash-playback:link,a.dash-playback:visited {background-position: -504px 0px;  }
+a.dash-alarm-center:link,a.dash-alarm-center:visited {background-position: -336px 0px; }
+a.dash-download:link,a.dash-download:visited {background-position: -252px 0px; }
+a.dash-intelligent:link,a.dash-intelligent:visited {background-position: -336px -252px; }
+a.dash-video:link,a.dash-video:visited {background-position: -588px 0px; }
+a.dash-alarm:link,a.dash-alarm:visited {background-position: -84px 0px; }
+a.dash-cascade:link,a.dash-cascade:visited {background-position: 0px 0px; }
+a.dash-monitor-center:link,a.dash-monitor-center:visited {background-position: -420px 0px; }
+a.dash-statics:link,a.dash-statics:visited {background-position: -252px -252px; }
+a.dash-report:link,a.dash-report:visited {background-position: -168px 0px; }
+a.dash-log:link,a.dash-log:visited {background-position: -84px -252px; }
+a.dash-setting-center:link,a.dash-setting-center:visited {background-position: -84px -504px; }
+
+
+a.dash-monitor:hover {background-position: -168px -336px; }
+a.dash-playback:hover {background-position: -504px -84px;  }
+a.dash-alarm-center:hover {background-position: -336px -84px; }
+a.dash-download:hover {background-position: -252px -84px; }
+a.dash-intelligent:hover {background-position: -336px -336px; }
+a.dash-video:hover {background-position: -588px -84px; }
+a.dash-alarm:hover {background-position: -84px -84px; }
+a.dash-cascade:hover {background-position: 0px -84px; }
+a.dash-monitor-center:hover {background-position: -420px -84px; }
+a.dash-statics:hover {background-position: -252px -336px; }
+a.dash-report:hover {background-position: -168px -84px; }
+a.dash-log:hover {background-position: -84px -336px; }
+a.dash-setting-center:hover {background-position: 0px -596px; }
+
+a.dash-monitor:active {background-position: -168px -420px; }
+a.dash-playback:active {background-position: -504px -168px;  }
+a.dash-alarm-center:active {background-position: -336px -168px; }
+a.dash-download:active {background-position: -252px -168px; }
+a.dash-intelligent:active {background-position: -336px -420px; }
+a.dash-video:active {background-position: -588px -168px; }
+a.dash-alarm:active {background-position: -84px -168px; }
+a.dash-cascade:active {background-position: 0px -168px; }
+a.dash-monitor-center:active {background-position: -420px -168px; }
+a.dash-statics:active {background-position: -252px -420px; }
+a.dash-report:active {background-position: -168px -168px; }
+a.dash-log:active {background-position: -84px -420px; }
+a.dash-setting-center:active {background-position: 0px -674px; }
+
+a.dash-organization:link, a.dash-organization:visited {background-position: -420px -252px; }
+a.dash-organization:hover {background-position: -420px -336px; }
+a.dash-organization:active {background-position: -420px -420px; }
+
+a.dash-user:link, a.dash-user:visited {background-position: -504px -252px; }
+a.dash-user:hover {background-position: -504px -336px; }
+a.dash-user:active {background-position: -504px -420px; }
+
+a.dash-service:link, a.dash-service:visited {background-position: -588px -252px; }
+a.dash-service:hover {background-position: -588px -336px; }
+a.dash-service:active {background-position: -588px -420px; }
+
+a.dash-resource:link, a.dash-resource:visited {background-position: 0px -504px; }
+a.dash-resource:hover {background-position: 0px -596px; }
+a.dash-resource:active {background-position: 0px -674px; }
+
+a.dash-setting:link, a.dash-setting:visited {background-position: 0px -252px; }
+a.dash-setting:hover {background-position: 0px -336px; }
+a.dash-setting:active {background-position: 0px -420px; }
+
+a.dash-gis:link, a.dash-gis:visited {background-position: -168px -504px; }
+a.dash-gis:hover {background-position: -168px -596px; }
+a.dash-gis:active {background-position: -168px -674px; }
+
+a.dash-gis-setting:link, a.dash-gis-setting:visited {background-position: -252px -504px; }
+a.dash-gis-setting:hover {background-position: -252px -596px; }
+a.dash-gis-setting:active {background-position: -252px -674px; }
+
+.icon_log span {position: relative;top: 84px;}

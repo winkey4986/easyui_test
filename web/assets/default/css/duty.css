@@ -1,0 +1,225 @@
+.fullcalendar { margin: 0 20px; }
+
+.grid-s9m0 .main-wrap { margin-left: 250px; margin-right: 0; border-left: 1px solid #DCDCD7; }
+.grid-s9m0 .col-sub { width: 250px; margin-left: -100%; margin-right: 0; }
+.grid-s9m0 .col-extra { display: none; }
+.sidebar {background:#345896;color:#FFF;min-height:1150px;}
+.sidebar a {color:#FFF;}
+.sidebar a:hover {color:#F60;}
+.sidebar .block-blank,
+.sidebar .block-blank .bd {background:none;border:none;}
+.sidebar .block-blank .hd {background:#4474C6;border:none;color:#FFF;}
+.sidebar .block-blank .bd h4 {padding:5px 0;font-size:12px;border-bottom:1px solid #4474C6;}
+.fc-container {background:#F8F9FB;min-height:1150px;}
+.fc-viewer {margin: 10px 20px;}
+
+.sidebar .datepicker thead tr:first-child th:hover,
+.sidebar .datepicker tfoot tr th:hover {
+    background: #3867AD;
+}
+.sidebar .datepicker td,
+.sidebar .datepicker th {
+    width: 32px;
+    height: 32px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.sidebar .datepicker td {
+    border: 1px solid #4064A0;
+}
+.sidebar table tbody tr:hover td {
+    background: #3867AD;
+    border-color: #4576B1;
+}
+.sidebar .datepicker table tr td.day:hover,
+.sidebar .datepicker table tr td span:hover {
+    background: #7CB9EF;
+    border-color: #7CB9EF;
+}
+.sidebar .datepicker table tr td.old,
+.sidebar .datepicker table tr td.new,
+.datepicker table tr td span.old,
+.datepicker table tr td span.new {
+    color: #5C80BC;
+}
+.sidebar .datepicker table tr td.active,
+.sidebar .datepicker table tr td.active:hover,
+.sidebar .datepicker table tr td.active.disabled,
+.sidebar .datepicker table tr td.active.disabled:hover,
+.datepicker table tr td span.active,
+.datepicker table tr td span.active:hover,
+.datepicker table tr td span.active.disabled,
+.datepicker table tr td span.active.disabled:hover {
+    background: #1B3158;
+    border: none;
+    filter: none;
+    color: #5EFFFA;
+    text-shadow: none;
+    font-weight: bold;
+}
+.sidebar .datepicker table tr td.active:hover,
+.sidebar .datepicker table tr td.active:hover:hover,
+.sidebar .datepicker table tr td.active.disabled:hover,
+.sidebar .datepicker table tr td.active.disabled:hover:hover,
+.sidebar .datepicker table tr td.active:active,
+.sidebar .datepicker table tr td.active:hover:active,
+.sidebar .datepicker table tr td.active.disabled:active,
+.sidebar .datepicker table tr td.active.disabled:hover:active,
+.sidebar .datepicker table tr td.active.active,
+.sidebar .datepicker table tr td.active:hover.active,
+.sidebar .datepicker table tr td.active.disabled.active,
+.sidebar .datepicker table tr td.active.disabled:hover.active,
+.sidebar .datepicker table tr td.active.disabled,
+.sidebar .datepicker table tr td.active:hover.disabled,
+.sidebar .datepicker table tr td.active.disabled.disabled,
+.sidebar .datepicker table tr td.active.disabled:hover.disabled,
+.sidebar .datepicker table tr td.active[disabled],
+.sidebar .datepicker table tr td.active:hover[disabled],
+.sidebar .datepicker table tr td.active.disabled[disabled],
+.sidebar .datepicker table tr td.active.disabled:hover[disabled],
+.datepicker table tr td span.active:hover,
+.datepicker table tr td span.active:hover:hover,
+.datepicker table tr td span.active.disabled:hover,
+.datepicker table tr td span.active.disabled:hover:hover,
+.datepicker table tr td span.active:active,
+.datepicker table tr td span.active:hover:active,
+.datepicker table tr td span.active.disabled:active,
+.datepicker table tr td span.active.disabled:hover:active,
+.datepicker table tr td span.active.active,
+.datepicker table tr td span.active:hover.active,
+.datepicker table tr td span.active.disabled.active,
+.datepicker table tr td span.active.disabled:hover.active,
+.datepicker table tr td span.active.disabled,
+.datepicker table tr td span.active:hover.disabled,
+.datepicker table tr td span.active.disabled.disabled,
+.datepicker table tr td span.active.disabled:hover.disabled,
+.datepicker table tr td span.active[disabled],
+.datepicker table tr td span.active:hover[disabled],
+.datepicker table tr td span.active.disabled[disabled],
+.datepicker table tr td span.active.disabled:hover[disabled] {
+    background: #1B3158;
+}
+.datepicker table tr td.today,
+.datepicker table tr:hover td.today,
+.datepicker table tr td.today:hover,
+.datepicker table tr td.today.disabled,
+.datepicker table tr td.today.disabled:hover {
+    background-color: #fde19a;
+    color: #000;
+}
+.fc-event-actions .ico.i-edit,
+.fc-event-actions .ico.i-del,
+.ico.i-submit,
+.ico.i-drop,
+.ico.i-approve,
+.ico.i-reject,
+.ico.i-online,
+.ico.i-offline,
+.ico.i-important,
+.ico.i-unimportant,
+.ico.i-checkall-ok,
+.ico.i-check-ok,
+.ico.i-preview,
+.ico.i-call,
+.ico.i-page-next,
+.ico.i-page-prev,
+.ico.i-approve-tome,
+.ico.i-transfer-note,
+.ico.i-transfer,
+.ico.i-leave-note,
+.ico.i-leave,
+.ico.i-adjustment,
+.ico.i-capture,
+.ico.i-exceptions,
+.ico.i-plan,
+.ico.i-plan-set,
+.ico.i-room3,
+.ico.i-room2,
+.ico.i-room1 { background: url(../images/icons_duty.png) no-repeat -9999px 0; }
+
+.fc-event-actions a {margin-left:0;float:left;}
+.fc-event-actions .ico.i-edit {background-position: -216px -24px;width:24px;height:24px;}
+.fc-event-actions .ico.i-del {background-position: -240px -24px;width:24px;height:24px;}
+.isDark .fc-event-actions .ico.i-edit {background-position: -216px -48px;width:24px;height:24px;}
+.isDark .fc-event-actions .ico.i-del {background-position: -240px -48px;width:24px;height:24px;}
+
+.ico.i-submit {background-position: -267px -27px;}
+.ico.i-drop {background-position: -267px -51px;}
+.ico.i-approve {background-position: -291px -27px;}
+.ico.i-reject {background-position: -291px -51px;}
+.ico.i-online {background-position: -99px -27px;}
+.ico.i-offline {background-position: -99px -51px;}
+.ico.i-important {background-position: -147px -27px;}
+.ico.i-unimportant {background-position: -147px -51px;}
+.ico.i-checkall-ok {background-position: -123px -51px;}
+.ico.i-check-ok {background-position: -123px -27px;}
+.ico.i-preview {background-position: -195px -27px;}
+.ico.i-call {background-position: -171px -27px;}
+.ico.i-page-prev {background-position: -3px -27px;}
+a:hover .ico.i-page-prev {background-position: -3px -51px;}
+.ico.i-page-next {background-position: -27px -27px;}
+a:hover .ico.i-page-next {background-position: -27px -51px;}
+.ico.i-approve-tome {background-position: -291px -3px;}
+.ico.i-transfer-note {background-position: -267px -3px;}
+.ico.i-transfer {background-position: -243px -3px;}
+.ico.i-leave-note {background-position: -219px -3px;}
+.ico.i-leave {background-position: -195px -3px;}
+.ico.i-adjustment {background-position: -171px -3px;}
+.ico.i-capture {background-position: -147px -3px;}
+.ico.i-exceptions {background-position: -123px -3px;}
+.ico.i-plan {background-position: -99px -3px;}
+.ico.i-plan-set {background-position: -75px -3px;}
+.ico.i-room3 {background-position: -51px -3px;}
+.ico.i-room2 {background-position: -27px -3px;}
+.ico.i-room1 {background-position: -3px -3px;}
+
+.text-list .title {font-weight:bold;}
+
+.fc-pagination {padding:10px 20px;}
+.fc-pagination a {padding:3px;float:left;height:18px;background:none;}
+.fc-pagination a:hover {background:#345896;color:#FFF;}
+.fc-pagination .icon-angle-left,
+.fc-pagination .icon-angle-right {
+    font-style:normal;
+    margin: 0 .1em;
+    font-size: 2em;
+    font-family: "Courier New", Courier, monospace;
+    vertical-align: baseline;
+}
+.fc-pagination .date-pages .date,
+.fc-pagination .date-pages {float:left;}
+.fc-pagination .duty-pages {float:right;}
+.fc-pagination .date-pages a {margin:0 10px 0 0;width:18px;height:18px;line-height:18px;text-align:center;font-weight:bold;}
+.fc-pagination .duty-pages a {margin:0 0 0 10px;}
+.fc-pagination .date-pages .date {margin:0 10px 0 0;color:#345896;font-size:14px;font-weight:bold;line-height:24px;}
+
+.captures {border-top:1px solid #D5D7D6;}
+.captures ul.items {padding:10px 5px 0;}
+.captures ul.items li {float:left;text-align:left;}
+.captures ul.items li .item {margin:0 5px 10px;width:196px;border:1px solid #E2E2E2;background:#F6F6F6;}
+.captures ul.items li.selected .item {border:1px solid #195dbc;}
+.captures ul.items li .item .thumb {position:relative;display:block;width:196px;height:146px;}
+.captures ul.items li .item .thumb.nopic {background:#FFF url(../images/nopic_small.png) no-repeat 50% 25%;cursor:default;}
+.captures ul.items li .item .thumb img {width:196px;height:146px;}
+.captures ul.items li .item .thumb .message {position:absolute;top:70%;left:0;width:100%;text-align: center;color:#FF6600;}
+.captures ul.items li .item .info {padding:5px 10px;}
+.captures ul.items li .item .info label {padding:1px 0;float:left;}
+.captures ul.items li .item .info .name {width:100px;display:inline-block;*display:inline;*zoom:1;}
+.captures ul.items li .item .info .status {padding:2px 0;float:right;}
+.captures ul.items li .item .info .status .ico {margin-left:5px;}
+.captures ul.items li .item .info .note {clear:both;padding:5px 0 0;display:inline-block;*display:inline;*zoom:1;width:170px;}
+
+.slider .box {height:320px;background:#333;}
+.slider .item { float: left; }
+.slider .item .thumb { position: relative; display: block; cursor: default; width: 640px; height: 320px; }
+.slider .item .thumb.nopic {background:#333 url(../images/nopic_big.png) no-repeat 50% 25%;cursor:default;}
+.slider .item .thumb img { width: 640px; height: 320px; }
+.slider .item .thumb i { position: absolute; left: 50%; top: 50%; margin-top: -40px; margin-left: -40px; display: block; width: 80px; height: 80px; background: url(../images/player.png) no-repeat 0 0; opacity: .3; cursor: pointer; }
+.slider .item .thumb i:hover { opacity: .8; }
+.slider .item .thumb.nopic i {display:none;}
+.slider .item .thumb .message {position:absolute;top:70%;left:0;width:100%;text-align: center;font-size:14px;color:#FF6600;}
+
+.player {position:absolute;top:0;left:0;right:0;height:320px;background:#333;color:#fff;}
+.player .close-wrapper {position:absolute;top:0;right:0;z-index:5;margin:10px;background:#FFF;}
+.player .close {position:relative;margin:2px;background-position: -3px -23px;width:11px;height:11px;}

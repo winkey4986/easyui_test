@@ -1,0 +1,157 @@
+.ico.i-prison,
+.ico.i-prison-area,
+.ico.i-prison-room,
+.ico.i-prison-total,
+.ico.i-prison-primary,
+.ico.i-prison-in,
+.ico.i-prison-out,
+.pop-police .close,
+.pop-convict .close,
+.player-list .ico,
+.treeview .ztree li span.ico.prison_ico_docu,
+.treeview .ztree li span.ico.prison_ico_close,
+.treeview .ztree li span.ico.prison_ico_open,
+.treeview .ztree li span.ico.prisonArea_ico_docu,
+.treeview .ztree li span.ico.prisonArea_ico_close,
+.treeview .ztree li span.ico.prisonArea_ico_open,
+.treeview .ztree li span.ico.prisonRoom_ico_docu,
+.treeview .ztree li span.ico.prisonRoom_ico_close,
+.treeview .ztree li span.ico.prisonRoom_ico_open { background: url(../images/icons_prison.png) no-repeat -9999px 0; }
+
+.ico.i-prison {background-position: -3px -3px;}
+.ico.i-prison-area {background-position: -27px -3px;}
+.ico.i-prison-room {background-position: -51px -3px;}
+.ico.i-prison-total {background-position: -75px -3px;}
+.ico.i-prison-primary {background-position: -99px -3px;}
+.ico.i-prison-in {background-position: -123px -3px;}
+.ico.i-prison-out {background-position: -147px -3px;}
+
+.treeview .ztree li span.ico.prison_ico_docu,
+.treeview .ztree li span.ico.prison_ico_close,
+.treeview .ztree li span.ico.prison_ico_open { background-position: -3px -3px; }
+.treeview .ztree li span.ico.prisonArea_ico_docu,
+.treeview .ztree li span.ico.prisonArea_ico_close,
+.treeview .ztree li span.ico.prisonArea_ico_open { background-position: -27px -3px; }
+.treeview .ztree li span.ico.prisonRoom_ico_docu,
+.treeview .ztree li span.ico.prisonRoom_ico_close,
+.treeview .ztree li span.ico.prisonRoom_ico_open { background-position: -51px -3px; }
+
+.stat {vertical-align:-5px;}
+.stat li {margin:0 15px 0 0;float:left;}
+.stat li .ico {margin:0 5px 0 0;}
+.stat li b {margin:0 0 0 5px;}
+
+.cards {margin:0 -5px;}
+.cards .btn-toolbar em {margin:0 5px;font-style:normal;color:#333;}
+.cards .box {padding:0;}
+.cards .box li {margin:0 5px 5px;float:left;width:248px;}
+.cards .box li .block {padding:1px;border:1px solid #CCC;background:#FFF;height:120px;overflow:hidden;}
+.cards .box li:hover .block {padding:0;border:2px solid #195EBD;}
+.cards .box li .block .hd {margin:0;padding:8px 15px;border:none;background:#F9F9F9;line-height:12px;position: relative;top:auto;width:auto;height:auto;}
+.cards .box li .block .hd h3 {border-left:4px solid #195EBD;font-size:12px;padding-left:10px;line-height: normal;text-align: left;color: #333;}
+.cards .box li .block .hd em {margin:0 0 0 10px;color:#818181;font-style:normal;font-size:12px;}
+.cards .box li .block .hd .more {right:0;}
+.cards .box li .block .hd .more a {margin:0 0 0 5px;}
+.cards .box li .block .bd {margin:0;padding:5px;background:none;}
+
+.cards li .stat {margin:10px;}
+.cards li .stat li {width:90px;}
+
+.avatars {margin:0;}
+.cards .avatars {margin:5px;}
+.cards .avatars li,
+.avatars li {margin:5px;float:left;width:auto;}
+.avatars li a.avatar {position:relative;float:left;}
+.avatars li a.avatar img {border:1px solid #E2E2E2;float:left;}
+.avatars li a.avatar span {padding: 5px 10px;position:absolute;left:0;right:0;bottom:0;text-align:center;background:#000;color:#FFF;font-weight:bold;opacity:0.5;filter:alpha(opacity=50);display:none;}
+.avatars li a.avatar:hover span {display:block;}
+
+.avatars-small li a.avatar img {width:100px;height:140px;}
+.avatars-medium li a.avatar img {width:130px;height:182px;}
+.avatars-big li a.avatar img {width:150px;height:210px;}
+
+/* 民警 */
+.prison-area .stat {background:#F9F9F9;}
+.prison-area .cards .box li .block {height:auto;}
+.prison-police .avatars {margin: 0 -5px;}
+.prison-police .avatars li {margin: 0 5px 10px;}
+.prison-police .avatars li a.avatar {border:1px solid #CCC;padding:1px;}
+.prison-police .avatars li a.avatar:hover {border:1px solid #348DE9;}
+.prison-police .avatars li a.avatar img {border:none;}
+.prison-police .avatars li a.avatar span {margin:2px 0 0;position:relative;clear:both;top:auto;left:auto;bottom:auto;right:auto;display:block;float:left;width:130px;opacity:1;filter:none;background:#F9F9F9;color:#333;text-align: left;}
+.prison-police .avatars li a.avatar span em {margin:0 0 0 5px;font-weight:normal;color:#818181;font-style:normal;}
+
+.pop-police {padding:1px;position:absolute;top:124px;left:20px;z-index:3;width:478px;background:#FFF;border:1px solid #CCC;overflow:hidden;}
+.pop-police .close {position:absolute;right:2px;top:2px;background-position:0 -24px;width:24px;height:24px;}
+.pop-police .close:hover {background-position:-24px -24px;}
+.pop-police .close:active {background-position:-48px -24px;}
+.pop-police .profile,
+.pop-police .detail {float:left;width:150px;}
+.pop-police .profile a.avatar {float:left;}
+.pop-police .profile a.avatar img {width:150px;height:210px;float:left;}
+.pop-police .profile a.avatar span {margin:2px 0 0;padding:5px 10px;float:left;width:130px;clear:both;background:#F9F9F9;color:#333;font-weight:bold;}
+.pop-police .profile a.avatar span em {margin:0 0 0 5px;font-weight:normal;color:#818181;font-style:normal;}
+.pop-police .detail {width:328px;}
+.pop-police .detail h3 {margin:15px 10px 0;font-size:14px;height:21px;}
+.pop-police .detail .datatable {margin:0 10px;}
+.pop-police .detail .scrollable {height: 172px;overflow:hidden;overflow-y:auto;}
+.pop-police .detail .info {margin:2px 0 0 -5px;padding:5px 10px 5px 15px;background:#F9F9F9;color:#333;}
+
+.pop-left .profile {float:right;}
+
+/* 囚犯 */
+.prison-convict .avatars {margin: 0 -5px;}
+.prison-convict .avatars li {margin: 0 5px 10px;}
+.prison-convict .avatars li a.avatar {border:1px solid #CCC;padding:1px;}
+.prison-convict .avatars li a.avatar:hover {border:1px solid #348DE9;}
+.prison-convict .avatars li a.avatar img {border:none;}
+.prison-convict .avatars li a.avatar span {margin:2px 0 0;position:relative;clear:both;top:auto;left:auto;bottom:auto;right:auto;display:block;float:left;width:110px;opacity:1;filter:none;background:#F9F9F9;color:#333;text-align: left;}
+.prison-convict .avatars li a.avatar span em {font-weight:normal;color:#818181;font-style:normal;display:block;}
+.prison-convict .avatars li a.avatar .status {position:absolute;right:5px;top:5px;}
+
+.pop-convict {padding:10px;position:absolute;top:98px;left:20px;z-index:3;width:400px;height:456px;background:#FFF;border:1px solid #CCC;overflow:hidden;}
+.pop-convict .close {position:absolute;right:2px;top:2px;background-position:0 -24px;width:24px;height:24px;}
+.pop-convict .close:hover {background-position:-24px -24px;}
+.pop-convict .close:active {background-position:-48px -24px;}
+.pop-convict .profile {float:left;}
+.pop-convict .profile a.avatar {float:left;}
+.pop-convict .profile a.avatar img {margin-left:5px;width:130px;height:182px;float:left;}
+.pop-convict .profile a.avatar img:first-child {margin-left:0;}
+.pop-convict .profile a.avatar span {position:relative;margin:2px 0 0;padding:5px 10px;width:380px;float:left;clear:both;color:#333;font-weight:bold;font-size:16px;}
+.pop-convict .profile a.avatar span em {margin:0 0 0 5px;font-weight:normal;color:#818181;font-style:normal;font-size:12px;}
+.pop-convict .profile a.avatar span .status {position:absolute;right:5px;top:5px;font-size:12px;font-weight:normal;}
+.pop-convict .profile a.avatar span .status .ico {margin: 0 0 0 5px;}
+.pop-convict .detail {padding:5px 0 0;clear:both;border-top:1px solid #E2E2E2;height:232px;overflow:hidden;}
+.pop-convict .detail .control-group {margin-bottom:0;}
+.pop-convict .detail .control-label {width:60px;}
+.pop-convict .detail .controls {margin-left:60px;}
+.pop-convict .detail .cols4 .controls {margin-left:0;width:115px;}
+.pop-convict .detail .text-area {position:relative;margin-bottom:10px;padding:5px;height:72px;line-height:24px;overflow:hidden;background:#F9F9F9;}
+.pop-convict .detail .text-area div {padding-bottom:5px;}
+
+.browser .grid-s6m0 .main-wrap {border-color:#c7c7c7;}
+.browser .col-sub h3 {
+    background: #F8FAF9;
+    background: -moz-linear-gradient(top,  #F8FAF9 0%, #EBEBEB 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F8FAF9), color-stop(100%,#EBEBEB));
+    background: -webkit-linear-gradient(top,  #F8FAF9 0%,#EBEBEB 100%);
+    background: -o-linear-gradient(top,  #F8FAF9 0%,#EBEBEB 100%);
+    background: -ms-linear-gradient(top,  #F8FAF9 0%,#EBEBEB 100%);
+    background: linear-gradient(top,  #F8FAF9 0%,#EBEBEB 100%);
+}
+.browser .folder {margin:0 0 60px;}
+.browser .folder li {margin:0;border-bottom:1px solid #c7c7c7;}
+.browser .folder li.active {margin-right:-1px;border-left:4px solid #2D60B3;}
+.browser .folder li a {padding:15px 20px;color:#808080;border:none;}
+.browser .folder li a:hover {color:#333;background: #FFF;}
+.browser .folder li.active a {padding-left:16px;background:#FFF;color:#333;}
+.browser .folder li a span {font-size:14px;font-weight:bold;}
+.browser .folder li a span em {margin:5px 0 0;font-size:12px;font-weight:normal;font-style:normal;display:block;color:#CBCBCB;}
+.browser .folder li a > em {position:absolute;right:20px;top:15px;padding:0 5px;font-style:normal;background:#FFF;border:1px solid #E2E2E2;border-radius:8px;}
+.browser .folder li.active a > em {padding:1px 6px;background:#2445A4;border:none;color:#FFF;}
+
+/* 人员信息 */
+.profile fieldset {position:relative;}
+.profile fieldset .avatar {position:absolute;top:30px;right:0;}
+.profile fieldset .avatar img {width:130px;height:182px;border:1px solid #E2E2E2;}
+.profile fieldset .detail {margin-right:420px;}

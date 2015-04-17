@@ -1,0 +1,33 @@
+/*
+* LightBlue Style
+* author: Liufengchun
+* creat: 2013-06-26
+* update: 2013-06-30
+*/
+
+#wrapper { padding-top: 0; background: url(../images/banner_home.png) repeat-x center 30px; }
+#header { height: 80px; background: none; }
+#header .logo img { margin: 15px 5px; }
+h1.title { margin: 15px 20px 15px 0; }
+
+.more a { color: #A3A3A3; }
+.more a:hover { color: #C61F19; }
+
+.block-home .hd h3 { background: transparent url(../images/block_title.png) no-repeat 0 0; }
+
+/* === Dashboard === */
+
+
+/** Switchable v2.0
+===================================*/
+.switchable-triggers li { color:#406CCA; }
+.switchable-triggers li.current { color:#c5c5c5; }
+
+.switchable-nav a { margin-top: 74px; top: 0; bottom: auto; width: 15px; height: 81px; background: url(../images/slider_controls.png) no-repeat 0 -9999px; }
+.switchable-nav .prev, .switchable-nav a.prev.disabled { left: -45px; right: auto; background-position: 0 0; }
+.switchable-nav .next, .switchable-nav a.next.disabled { left: auto; right: -45px; background-position: -30px 0; }
+.switchable-nav .prev:hover, .switchable-nav a.prev.disabled:hover { background-position: -15px 0; }
+.switchable-nav .next:hover, .switchable-nav a.next.disabled:hover { background-position: -45px 0; }
+
+.recentApps li a { color: #fff; background: #0384CE; }
+.recentApps li a:hover { color: #fff; background: #0376BA; }

@@ -1,0 +1,226 @@
+body { overflow: auto; }
+#wrapper { padding-top: 30px; }
+ul.userNav { margin-right: 0; }
+.topSearch { display: none; }
+#header { display: none; height: 0; }
+#content { position: relative; height: auto; top: auto; }
+#footer { position: relative; }
+.result-item {
+	padding: 6px 10px;
+	border: 1px #fff solid;
+}
+
+.result-item .icon {
+	display: none;
+}
+
+.result-item .title {
+	min-height: 25px;
+}
+.result-item .title a.device-name {
+	color: blue;
+	font-size: medium;
+	text-decoration: underline;
+	vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 750px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.result-item .content {
+	color: #666;
+	padding-top: 2px;
+	font-size: 100%;
+}
+
+.result-item .content .item{
+	margin-right: 40px;
+    display: inline-block;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.result-item .type-word {
+	color: #333;
+}
+
+.hd h3 img {
+	vertical-align: middle;
+}
+
+.result-item .title .operate-unit {
+	margin-left: 15px;
+	display: none;
+}
+
+.result-item .title .operate-unit a{
+	text-decoration: none;
+	color: #69a1f5;
+	font-size: 12px;
+}
+
+.result-item .title .operate-unit a.disable{
+	color: #666;
+	cursor: normal;
+}
+
+.result-item .title .operate-unit a span {
+	vertical-align: middle;
+}
+.result-item .title .operate-unit a .ico {
+	margin-right: 2px;
+    vertical-align: -7px \9;
+}
+.result-item-hover {
+	background-color: #d0e1ff;
+	border: 1px #abc5f2 solid;
+}
+
+.result-item-hover .title .operate-unit {
+	display: inline;
+}
+
+.search-div {
+	padding: 15px 0 15px 15px;
+	background-color: #e6e7e9;
+	border-bottom: 2px #cccccc solid;
+    box-sizing: border-box;
+}
+
+.search-box {
+	display: inline-block;
+	position: relative;
+	padding-right: 25px;
+	border: 1px #ccc solid;
+	background-color: #fff;
+}
+
+.search-box .search-input,
+.search-box .search-input:focus {
+	width: 400px;
+	border-width: 0px !important;
+}
+
+.search-input.placeholder{ color: #aaa;}
+
+.search-box #searchBtn {
+	background: #397FFA url(../images/search.png) no-repeat 0 0;
+	width: 25px;
+	height: 24px;
+	cursor: pointer;
+	position: absolute;
+    top: 0px;
+	right: 0px;
+}
+
+.info-div {
+	padding: 10px 15px;
+	line-height: 20px;
+}
+.info-div b { color: #4f7307; font-weight: normal; }
+.info-div b code { color: #ff0000; }
+.wrapper {
+    height: auto;
+}
+.wrapper .block {
+	min-height: 75px;
+	background-color: #fff;
+	border: 1px #e3e3e3 solid !important;
+	margin: 0 15px 15px 15px;
+}
+
+.hd {
+	background-color: rgb(238, 240, 243) !important;
+	border-top: 1px #fff solid !important;
+}
+
+.camera-icon {
+	background: url(../images/sprite_monitor.png) no-repeat -9999px 0;
+	width: 18px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle
+}
+
+.m-gun {
+	background-position: -196px -5px;
+}
+
+.m-gun-hd {
+	background-position: -196px -53px;
+}
+
+.m-ball {
+	background-position: -220px -5px;
+}
+
+.m-ball-hd {
+	background-position: -220px -53px;
+}
+
+.m-halfball {
+	background-position: -244px -5px;
+}
+
+.m-halfball-hd {
+	background-position: -244px -53px;
+}
+
+.condition {
+	margin: 10px 15px;
+	border-bottom: 1px #bebdbd solid;
+}
+
+.condition li {
+	display: inline-block;
+	width: 70px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	cursor: pointer;
+	line-height: 26px;
+	border-bottom: 3px #ffffff solid;
+}
+
+.condition li.item-sel {
+	color: #397ffa;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: normal;
+	border-bottom: 3px #397ffa solid;
+}
+
+#content .wrapper{
+	border-right-width: 0px !important;
+	border-bottom-width: 0px !important;
+}
+
+.detail-table td {
+    word-wrap: break-word;
+	word-break: break-all;
+    line-height: 25px;
+}
+
+.detail-table .head{
+	text-align: right;
+	font-weight: bold;
+	padding-right: 10px;
+	width: 80px;
+    white-space: nowrap;
+}
+
+#cameraPlayDialog {
+	overflow: hidden;
+	padding: 0px;
+}
+.device-name {
+    color: #075ee0;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-all;
+}

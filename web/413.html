@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>海康威视视频管理系统</title>
+    <link href="fav.ico" rel="shortcut icon"/>
+    <link href="/baseui/themes/default/css/reset.css" rel="stylesheet"/>
+    <link href="/baseui/themes/default/css/error.css" rel="stylesheet"/>
+</head>
+<script type="text/javascript">
+function onIndex(){
+	if (self != top) {
+		var serviceURL = top.location.href;
+		var serviceIP = serviceURL.substring(serviceURL.indexOf('://')+3);
+		serviceIP = serviceIP.substring(0,serviceIP.indexOf('/'));
+		top.location.href = "http://"+serviceIP;
+	} else {
+		var serviceURL = window.location.href;
+		var serviceIP = serviceURL.substring(serviceURL.indexOf('://')+3);
+		serviceIP = serviceIP.substring(0,serviceIP.indexOf('/'));
+		window.location.href = "http://"+serviceIP;
+	}
+}
+</script>
+<body>
+<div class="wrapper">
+    <div class="title"><h1>413</h1></div>
+    <div class="content">
+        <div class="message">
+            <h3>您上传的文件大小超过限制！</h3>
+            <p>
+                文件过大，或者限值太小！<br> 请联系管理员！
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
