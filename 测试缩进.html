@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>EasyUI Demo</title>
+
+	<script class="jsbin" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <!--<script type="text/javascript" src="jquery-easyui-1.4.2/jquery.min.js"></script>-->
+
+    <script type="text/javascript">
+ 		$(document).ready(function(){
+		  $("#close").toggle(
+		  	function(){
+		   		$("#left").hide();
+		   		$("#center").css('width','100%');
+			},
+		    function(){
+		   		$("#left").show();
+		   		$("#center").css('width','70%');
+			}
+		  );
+		});
+    </script>
+    </head>
+<style type="text/css">
+	body{margin: 0;padding: 0;background: #FFFFCC;width: 100%;}
+	#container { width:900px; margin:0 auto;}
+	#header{height: 100px;background: #0f0;width: 100%;}
+	#mainbody{height: 600px;background: gray;width: 100%;}
+	#footer{height: 50px;background: #669966;width: 100%;}
+	#left{float: left;width: 30%;height:100%;background: red;}
+	#center{position: relative; float: left;width: 70%;height:100%;background: #00f url(map.jpg) no-repeat scroll center; }
+	#close{position: absolute;left: 1px;top: 50%;width: 10px;height: 30px;background: yellow; }
+	.bigWidth{width: 100%;}
+	.smallWidth{width:70%;}
+</style>
+<!--1. 在整个页面创建布局面板-->
+<body>
+	<div id="container">
+		<div id="header">头部</div>
+		<div id="mainbody">
+			<div id="left">左边
+			</div>
+			<div id="center">
+				<div id="close">
+					C
+				</div>
+			</div>
+		</div>
+		<div id="footer">地步</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
