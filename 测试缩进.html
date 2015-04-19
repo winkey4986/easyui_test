@@ -11,12 +11,12 @@
  		$(document).ready(function(){
 		  $("#close").toggle(
 		  	function(){
-		   		$("#left").hide();
-		   		$("#center").css('width','100%');
+		  		$("#left").animate({width:"0"});
+		   		$("#center").animate({width:"100%"});
 			},
 		    function(){
-		   		$("#left").show();
-		   		$("#center").css('width','70%');
+		   		$("#left").animate({width:"30%"});
+		   		$("#center").animate({width:"70%"});
 			}
 		  );
 		});
