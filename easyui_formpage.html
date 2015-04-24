@@ -1,0 +1,241 @@
+<div class="page">
+        <div class="wrapper">
+            <div class="breadLine displayNone">
+                <ul class="breadcrumbs auto-navigation" menu-code="46">
+                    <li>IP段添加编码设备</li>
+                </ul>
+            </div>
+            <div class="pageTitle">
+                <h3>IP段添加编码设备</h3>
+            </div>
+            <div class="pageContent">
+                <form id="encryptionForm" _ischanged="true" action="/cms/web/module/resource/deviceInfo/deviceInfoAction-saveDeviceInfoMIP.action?addType=2&isGuide=0" class="form-horizontal form-input" method="POST">
+                    <fieldset>
+                        <legend>文本框</legend>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>下拉框：</label>
+                            <div class="controls">
+                                <select name="model.i_manufacturer" id="manufacturer" class="required">
+                                    <option value="M0" title="海康威视">海康威视</option>
+                                    <option value="M1" title="大华股份">大华股份</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group" id="orgNameDiv">
+                            <label class="control-label"><em>*</em>长文本框：</label>
+                            <div class="controls">
+                                <input id="" name="" type="text" required="true" class="input-xlarge auto-input">
+                            </div>
+                            <input type="hidden" name="model.i_org_id" id="orgId" value="隐藏框">
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>普通文本：</label>
+                            <div class="controls">
+                                <input name="" value="admin" class="auto-input" required="true" vtype="common" maxLength="32" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>密码框：</label>
+                            <div class="controls">
+                                <input name="" value="" id="userPwd" class="auto-input" required="true" maxLength="16" type="password" vtype="common">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">复选框：</label>
+                            <div class="controls">
+                                <input type="checkbox" name="model.i_enable" checked="checked" id="isDisabled" value="1">
+                            </div>
+                        </div>
+                        <!-- <div class="control-group">
+                            <label class="control-label"><em>*</em>ip文本：</label>
+                            <div class="controls">
+                                <input name="" class="auto-input" required="true" vtype="ip" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>数字文本：</label>
+                            <div class="controls">
+                                <input name="" id="" value="8000" class="auto-input"  required="true" vtype="number" maxValue="65535" minValue="1" maxLength="5" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">手机号码：</label>
+                            <div class="controls">
+                                <input id="user-mobile" maxlength="11" name="user.mobile" value="" class="auto-input" vtype="mobile" type="text"><label class="info" for="user.mobile" generated="true" style="display: none;">请输入0~11个字! 请输入手机号码（11位数字）<i class="arrow"><b></b></i></label></div>
+                        </div> -->                      
+                    </fieldset>
+                    <fieldset>
+                        <legend>连接信息</legend>
+                        <div class="control-group">
+                            <label class="control-label">单选框：</label>
+                            <div class="controls">
+                                <span class="check"><label><input type="radio" name="model.i_is_selfrecord" value="1"><span>是</span></label></span> 
+                                <span class="check"><label><input type="radio" name="model.i_is_selfrecord" value="0" checked><span>否</span></label></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>结束IP地址：</label>
+                            <div class="controls">
+                                <input name="endNetworkAddr" class="auto-input" required="true" vtype="ip" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>控制端口：</label>
+                            <div class="controls">
+                                <input name="model.i_port" id="networkPort" value="8000" class="auto-input" maxLength="5" required="true" vtype="number" maxValue="65535" minValue="1" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>用户名：</label>
+                            <div class="controls">
+                                <input name="model.c_user_name" value="admin" class="auto-input" required="true" vtype="common" maxLength="32" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>密码：</label>
+                            <div class="controls">
+                                <input name="model.c_user_pwd" value="" id="userPwd" class="auto-input" required="true" maxLength="16" type="password" vtype="common">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                <div id="pw-strong-tip" style="width:180px;">
+                                    <div class="progress progress-medium">
+                                        <div class="filler">
+                                            <div class="bar" style="width:0;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">接入类型：</label>
+                            <div class="controls">
+                                被动
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>协议类型：</label>
+                            <div class="controls">
+                                <select name="model.c_treaty_type" required="true" id="treatyType">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>所属VAG：</label>
+                            <div class="controls">
+                                <select class="auto-input" required="true" name="model.c_vag_index_code">
+                                      
+                                          <option value="10000000002010000013" title="vag">
+                                                vag
+                                          </option>
+                                      
+                                          <option value="10000000002010000037" title="vag11">
+                                                vag11
+                                          </option>
+                                      
+                                 </select>
+                             </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                    <legend>通道信息</legend>
+                        <div class="control-group" id="cameraCountDiv">
+                            <label class="control-label"><em>*</em>模拟通道数：</label>
+                            <div class="controls">
+                                <input name="model.i_camera_count" value="1" class="auto-input" required="true" vtype="number" maxLength="2" maxValue="32" minValue="0" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>数字通道数：</label>
+                            <div class="controls">
+                                <input name="model.i_ip_chan_count" value="0" class="auto-input" required="true" vtype="number" maxLength="3" maxValue="128" minValue="0" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>零通道数：</label>
+                            <div class="controls">
+                                <input name="model.i_zero_chan_count" value="0" class="auto-input" required="true" vtype="number" maxLength="3" maxValue="128" minValue="0" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>告警输入数：</label>
+                            <div class="controls">
+                                <input name=model.i_alarm_in_count value="1" class="auto-input" required="true" vtype="number" maxLength="2" maxValue="32" minValue="0" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>告警输出数：</label>
+                            <div class="controls">
+                                <input name=model.i_alarm_out_count value="1" class="auto-input" required="true" vtype="number" maxLength="2" maxValue="32" minValue="0" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><em>*</em>对讲通道数：</label>
+                            <div class="controls">
+                                <input name="model.i_talk_count" value="1" class="auto-input" required="true" vtype="number" maxLength="2" maxValue="32" minValue="0" type="text">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>可选能力项</legend>
+                        <div class="control-group">
+                            <label class="control-label">是否智能：</label>
+                            <div class="controls">
+                                <span class="check"><label><input type="radio" name="model.i_is_intelligent" value="1"><span>是</span></label></span> 
+                                <span class="check"><label><input type="radio" name="model.i_is_intelligent" value="0" checked><span>否</span></label></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">是否本地存储：</label>
+                            <div class="controls">
+                                <span class="check"><label><input type="radio" name="model.i_is_selfrecord" value="1"><span>是</span></label></span> 
+                                <span class="check"><label><input type="radio" name="model.i_is_selfrecord" value="0" checked><span>否</span></label></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">是否smart设备：</label>
+                            <div class="controls">
+                                <span class="check"><label><input type="radio" name="model.i_is_smart" value="1"><span>是</span></label></span> 
+                                <span class="check"><label><input type="radio" name="model.i_is_smart" value="0" checked><span>否</span></label></span>
+                            </div>
+                        </div>  
+                    </fieldset>
+                    <fieldset>
+                        <legend>附加信息</legend>
+                        <div class="control-group">
+                            <label class="control-label">安装位置：</label>
+                            <div class="controls">
+                                <textarea class="auto-input" name="model.c_installway" rows="5" maxLength="255"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">安装时间：</label>
+                            <div class="controls">
+                                <input type="text" hikui="calendar" showTime="true" name="model.c_install_time">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">备注：</label>
+                            <div class="controls">
+                                <textarea class="auto-input" name="model.c_description" rows="5" maxLength="255"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input type="hidden" name="model.c_classname" value="DeviceInfo">
+                    <input type="hidden" name="model.i_register_type" value="0">
+                    <input type="hidden" name="model.i_is_online" value="0">
+                    <input type="hidden" name="model.i_bandwidth" value="0">
+                    <!--<input type="hidden" name="cameraName" id="cameraName">
+                    <input type="hidden" name="alarmInName" id="alarmInName">
+                    <input type="hidden" name="alarmOutName" id="alarmOutName">-->
+                    <input type="hidden" name="model.c_serial_no" id="serialNoHidden">                  
+                    <div class="form-actions">
+                        <a type="button" id="submit-btn" class="buttonM bBlue">保存</a>
+                        <a type="cancel" class="buttonM bBack" id="cancal_add_device" href="javascript:$.history('/cms/web/module/resource/deviceInfo/page-deviceInfoAction-onDeviceInfoBo.action');"><span class="ico i-backward"></span><span>返回</span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

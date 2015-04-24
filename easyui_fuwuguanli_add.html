@@ -1,0 +1,114 @@
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/themes/default/easyui.css"/>
+
+<script src="baseui/js/auto-parser.js"></script>
+<script src="baseui/js/page.js"></script>
+<script src="js/common.js"></script>
+<style type="text/css" media="screen">
+      .panel-body-noheader {border-top-width: 0px; } 
+      .hideBreadLine .breadLine{display: none}
+      .hideBreadLine .wrapper { top: 0px!important;}
+      
+</style>
+
+<div class="wrapper">
+    <div class="breadline displayNone">
+        <ul class="breadcrumbs auto-navigation" menu-code="27">
+            <li><span title="服务添加">服务添加</span></li>
+
+        </ul>
+    </div>
+    <div class="pageContent">
+        <form id="form" action="/cms/web/module/servicemanager/save.action" class="form-horizontal form-input" method="post">
+            <fieldset>
+                <legend>基本信息</legend>
+                <div class="control-group">
+                    <label class="control-label">
+                        <em>*</em>
+                        服务名称：
+                    </label>
+                    <div class="controls">
+                        <input name="entity.name" id="entity-name" value="" class="auto-input" required="true" vtype="common" maxlength="32" type="text">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">
+                        <em>*</em>
+                        服务类型：
+                    </label>
+                    <div class="controls">
+                        <select id="entity-serviceType" name="entity.serviceType" onchange="changeServiceType()" class="auto-input" >
+                            
+                                <option value="kbs"  fastSupport="true" muiltSupport="false" clusterSupport="false">KBS(键盘代理服务)</option>
+                            
+                                <option value="peag"  fastSupport="true" muiltSupport="false" clusterSupport="false">PEAG(动力环境接入网关)</option>
+                            
+                                <option value="kms"  fastSupport="true" muiltSupport="false" clusterSupport="false">KMS(内容管理服务)</option>
+                            
+                                <option value="cms"  fastSupport="true" muiltSupport="false" clusterSupport="true">CMS(中心管理系统)</option>
+                            
+                                <option value="sag"  fastSupport="true" muiltSupport="false" clusterSupport="false">SAG(短信接入网关)</option>
+                            
+                                <option value="gis"  fastSupport="true" muiltSupport="false" clusterSupport="true">GIS(电子地图服务)</option>
+                            
+                                <option value="vportal"  fastSupport="true" muiltSupport="false" clusterSupport="true">V-PORTAL(视频门户)</option>
+                            
+                                <option value="dag"  fastSupport="true" muiltSupport="false" clusterSupport="false">DAG(外设接入网关)</option>
+                            
+                                <option value="vrm"  fastSupport="false" muiltSupport="true" clusterSupport="true">VRM(视频存储管理服务)</option>
+                            
+                                <option value="tvms"  fastSupport="true" muiltSupport="false" clusterSupport="false">TVMS(电视墙管理服务)</option>
+                            
+                                <option value="ncg"  fastSupport="true" muiltSupport="false" clusterSupport="false">NCG(级联服务)</option>
+                            
+                                <option value="eg"  fastSupport="true" muiltSupport="false" clusterSupport="true">EG(一卡通应用)</option>
+                            
+                                <option value="ntp"  fastSupport="true" muiltSupport="false" clusterSupport="false">NTP(校时服务)</option>
+                            
+                                <option value="ddns"  fastSupport="true" muiltSupport="false" clusterSupport="false">DDNS(动态域名服务)</option>
+                            
+                                <option value="nms"  fastSupport="true" muiltSupport="false" clusterSupport="true">NMS(视频网管服务)</option>
+                            
+                                <option value="vtm"  fastSupport="false" muiltSupport="true" clusterSupport="false">VTM(视频传输管理服务)</option>
+                            
+                                <option value="vmcc"  fastSupport="true" muiltSupport="false" clusterSupport="true">VMCC(视频管控中心)</option>
+                            
+                                <option value="mag"  fastSupport="true" muiltSupport="false" clusterSupport="false">MAG(移动接入网关)</option>
+                            
+                                <option value="vms"  fastSupport="true" muiltSupport="false" clusterSupport="true">VMS(视频管理服务)</option>
+                            
+                                <option value="eds"  fastSupport="false" muiltSupport="true" clusterSupport="false">EDS(事件分发服务)</option>
+                            
+                                <option value="vag"  fastSupport="true" muiltSupport="false" clusterSupport="false">VAG(视频设备接入网关)</option>
+                            
+                        </select> 
+                    </div>
+                </div>
+                <div class="control-group hide" id="cluster-div" class="hide">
+                    <label class="control-label">                               
+                        集群：
+                    </label>
+                    <div class="controls">
+                        <span class="check"><input id="entity-isCluster" onchange="clusterChange()" class="auto-input" name="entity.isCluster" required="true" type="checkbox" value="1"></span>
+                    </div>
+                </div>
+                <div class="control-group hide" id="muilt-div" class="hide">
+                    <label class="control-label">                               
+                        批量添加：
+                    </label>
+                    <div class="controls">
+                        <span class="check"><input id="entity-isMuilt" onchange="muiltChange()" class="auto-input" required="true" type="checkbox" value="1" name="muiltOperation"></span>
+                    </div>
+                </div>
+            </fieldset>
+            <div id="fast-operation" class="hide">
+            </div>
+            <div id="muilt-operation" class="hide">
+            </div>
+            <div class="form-actions">
+                <a class="buttonM bBlue" type="submit" id="save-btn">保存</a>
+                <a class="buttonM bBack" id="back-btn" href="javascript:$.history('/cms/web/module/servicemanager/list.action');"><span class="ico i-backward"></span><span>返回</span></a>
+            </div>
+        </form>
+    </div>
+
+</div>

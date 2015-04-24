@@ -1,0 +1,63 @@
+
+<link href="web/assets/default/css/organization.css" rel="stylesheet"/>
+    
+    <link href="baseui/themes/lightblue/css/organization.css" rel="stylesheet"/>
+    
+    <script src="baseui/js/plugins/ztree/jquery.ztree.exedit.js"></script>
+    <style type="text/css" media="screen">
+          .panel-body-noheader {border-top-width: 0px; } 
+          .hideBreadLine .breadLine{display: none}
+          .hideBreadLine .wrapper { top: 0px!important;}
+    </style>
+<div region="center" class="page withFixed">
+            <div class="wrapper">
+            <div class="breadline displayNone">
+                <ul class="breadcrumbs auto-navigation" menu-code="22">
+                </ul>
+            </div>
+            <div class="organization">
+                <div class="box clearfix">
+                    
+                        
+                            <div class="block block-tape org-editable org-enable">
+                                <div class="hd">
+                                    <h3>已启用</h3>
+                        
+                        
+                                    <span class="more"><a class="close tipS" href="javascript:delOrgTree(zTree1,1,0)" title="删除">×</a></span> 
+                                    <span class="shadow-left"></span><span class="shadow-right"></span>
+                                </div>
+                                <div class="bd">
+                                    <div class="form-horizontal">
+                                        <fieldset>
+                                            <legend>用户树 <span class="action"><a href="javascript:modifyOrgTree(1,'用户树')" class="tipS" title="编辑"><i class="ico i-edit"></i>编辑</a></span></legend>
+                                            <div class="control-group">
+                                                <label class="control-label">用于：</label>
+                                                <div class="controls">用户管理 &nbsp; 资源管理 &nbsp; </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">描述：</label>
+                                                <div class="controls">系统的初始化的用户树,可以直接设置为资源树用于管理....资源!</div>
+                                            </div>
+                                            <div class="treeview">
+                                                <div class="btn-toolbar clearfix">
+                                                    <a class="buttonS tipS" href="javascript:addOrg(zTree1,1)" title="添加"><span class="ico i-add"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:modifyOrg(zTree1,1)" title="编辑"><span class="ico i-edit"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:delOrg(zTree1,1)" title="删除"><span class="ico i-del"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:upOrg(zTree1,1)" title="上移"><span class="ico i-move-up"></span></a>
+                                                    <a class="buttonS tipS" href="javascript:downOrg(zTree1,1)" title="下移"><span class="ico i-move-down"></span></a>
+                                                    <a id="import-btn" class="buttonS" href="###;"><span class="ico i-device-import"></span><span>导入</span></a>
+                                                </div>
+                                                <ul class="ztree" id="zTree1" style="width: 532px;"><li id="zTree1_id_1_1" class="level0" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_1_switch" title="" class="button level0 switch root_open" treenode_switch=""></span><a id="zTree1_id_1_1_a" class="level0   curSelectedNode" treenode_a="" onclick="" target="_blank" style="" title="主控中心1"><span id="zTree1_id_1_1_ico" title="" treenode_ico="" class="button province_ico_open" style=""></span><span id="zTree1_id_1_1_span">主控中心1</span></a><ul id="zTree1_id_1_1_ul" class="level0 " style="display:block"><li id="zTree1_id_1_4" class="level1" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_4_switch" title="" class="button level1 switch center_docu" treenode_switch=""></span><a id="zTree1_id_1_4_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="组织2"><span id="zTree1_id_1_4_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span><span id="zTree1_id_1_4_span">组织2</span></a></li><li id="zTree1_id_1_3" class="level1" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_3_switch" title="" class="button level1 switch center_close" treenode_switch=""></span><a id="zTree1_id_1_3_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="组织添加测试"><span id="zTree1_id_1_3_ico" title="" treenode_ico="" class="button city_ico_close" style=""></span><span id="zTree1_id_1_3_span">组织添加测试</span></a></li><li id="zTree1_id_1_11" class="level1" tabindex="0" hidefocus="true" treenode=""><span id="zTree1_id_1_11_switch" title="" class="button level1 switch bottom_docu" treenode_switch=""></span><a id="zTree1_id_1_11_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊顶顶顶顶顶点的顶"><span id="zTree1_id_1_11_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span><span id="zTree1_id_1_11_span">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊顶顶顶顶顶点的顶</span></a></li></ul></li></ul>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        </div>

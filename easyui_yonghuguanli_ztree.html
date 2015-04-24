@@ -1,0 +1,117 @@
+
+<script src="baseui/js/plugins/ztree/jquery.ztree.core.js"></script>
+<script src="baseui/js/plugins/ztree/jquery.ztree.excheck.js"></script>
+<script src="baseui/js/plugins/underscore.js"></script>
+<script src="baseui/js/jquery-override.js"></script>
+<script src="baseui/js/jquery.ztree-override.js"></script>
+
+
+<script type="text/javascript" charset='utf-8'>
+        var tree    
+        //$(function(){
+            //alert(1)
+            loadTree('');
+            $("#org-search").autocomplete({
+                minLength: 0,
+                source:function (request, response) {
+                    $('#org-name-hidden').val($("#org-search").val());
+                    $.ajax({
+                        url: pt.ctx+"/web/module/organization/userTreeOrganizationVague.action",  //要查询的Action
+                        type: "POST",  //Post提交
+                        dataType: "json", //json格式数据，默认是text
+                        data: {orgName : $("#org-search").val()},
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {label: item.orgName, value: item.name}; //将返回的jsonresult的属性赋值给autocomplete item
+                            }));
+                        }
+                    });
+                },
+                select: function(event, ui) {
+                    $('#org-search').val(ui.item.value);
+                    $('#org-name-hidden').val(ui.item.value);
+                    return false;
+               }
+            });
+            $('#search-btn').click(function(){
+                loadTree($('#org-name-hidden').val());
+            })
+            
+            $('#org-search').keydown(function(event) {
+                if (event.which == 13) { //13等于回车键(Enter)键值,ctrlKey 等于 Ctrl
+                    loadTree($('#org-name-hidden').val());
+                }
+            });
+        //});
+        
+        function loadTree(orgName){
+            var setting = {
+                    ajax:{
+                        url:"web/module/privilege/user/userTree.action",
+                        data:{
+                            orgName:orgName
+                        },
+                        dataType:'json',
+                        type:'post',
+                        success:function(){
+                            var node = tree.getNodes()[0];
+                            tree.selectNode(node);
+                            
+                        }
+                    },
+                    callback:{
+                        onClick:function(event, treeId, treeNode){
+                            //top.$.navigation.first("web/module/privilege/user/listUser.action?orgId="+treeNode.id, true,'#gridFrame');
+                            
+                            $('#gridFrame',document.body).attr('src',"web/module/privilege/user/listUser.action?orgId="+treeNode.id);
+                        }
+                        
+                    }
+                };
+            //tree = $("#zTree").tree(setting);
+        }
+</script>
+
+<div class="wrapper">
+        <div class="treeview">
+            <ul id="zTree" class="ztree">
+                <li id="zTree_id_1" class="level0" tabindex="0" hidefocus="true" treenode="">
+                    <span id="zTree_id_1_switch" title="" class="button level0 switch root_open" treenode_switch=""></span>
+                    <a id="zTree_id_1_a" class="level0   curSelectedNode" treenode_a="" onclick="" target="_blank" style="" title="主控中心">
+                        <span id="zTree_id_1_ico" title="" treenode_ico="" class="button province_ico_open" style=""></span>
+                        <span id="zTree_id_1_span">主控中心</span>
+                    </a>
+                    <ul id="zTree_id_1_ul" class="level0 " style="display:block">
+                        <li id="zTree_id_3" class="level1" tabindex="0" hidefocus="true" treenode="">
+                        <span id="zTree_id_3_switch" title="" class="button level1 switch center_docu" treenode_switch=""></span>
+                            <a id="zTree_id_3_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="杭州">
+                                <span id="zTree_id_3_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span>
+                                <span id="zTree_id_3_span">杭州</span>
+                            </a>
+                        </li>
+                        <li id="zTree_id_4" class="level1" tabindex="0" hidefocus="true" treenode="">
+                            <span id="zTree_id_4_switch" title="" class="button level1 switch center_close" treenode_switch=""></span>
+                            <a id="zTree_id_4_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="13246546847987">
+                                <span id="zTree_id_4_ico" title="" treenode_ico="" class="button city_ico_close" style=""></span>
+                                <span id="zTree_id_4_span">13246546847987</span>
+                            </a>
+                        </li>
+                        <li id="zTree_id_7" class="level1" tabindex="0" hidefocus="true" treenode="">
+                            <span id="zTree_id_7_switch" title="" class="button level1 switch center_docu" treenode_switch=""></span>
+                            <a id="zTree_id_7_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="1235123123">
+                                <span id="zTree_id_7_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span>
+                                <span id="zTree_id_7_span">1235123123</span>
+                            </a>
+                        </li>
+                        <li id="zTree_id_8" class="level1" tabindex="0" hidefocus="true" treenode="">
+                            <span id="zTree_id_8_switch" title="" class="button level1 switch bottom_docu" treenode_switch=""></span>
+                            <a id="zTree_id_8_a" class="level1  " treenode_a="" onclick="" target="_blank" style="" title="123123123">
+                                <span id="zTree_id_8_ico" title="" treenode_ico="" class="button city_ico_docu" style=""></span>
+                                <span id="zTree_id_8_span">123123123</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+</div>

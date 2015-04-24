@@ -1,0 +1,678 @@
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/themes/default/easyui.css"/>
+
+<script src="baseui/js/auto-parser.js"></script>
+<script src="baseui/js/page.js"></script>
+<script src="js/common.js"></script>
+<style type="text/css" media="screen">
+      .panel-body-noheader {border-top-width: 0px; } 
+      .hideBreadLine .breadLine{display: none}
+      .hideBreadLine .wrapper { top: 0px!important;}
+      
+</style>
+
+<div class="page withFixed" >
+    <div class="wrapper">
+        <div class="breadline displayNone">
+            <ul class="breadcrumbs auto-navigation" menu-code="27"></ul>
+        </div>
+        <div class="btn-toolbar fixed clearfix">
+            <div class="btn-padding">
+                <a id="add-btn" class="buttonS" href="###;">
+                    <span class="ico i-add"></span>
+                    <span>添加</span>
+                </a>
+                <a id="del-btn" class="buttonS" href="###;">
+                    <span class="ico i-del"></span>
+                    <span>删除</span>
+                </a>
+                |
+                <a id="timing-btn" class="buttonS" href="###;">
+                    <span class="ico i-time-compare"></span>
+                    <span>校时</span>
+                </a>
+                <a id="config-btn" class="buttonS" href="###;">
+                    <span class="ico i-reset-password"></span>
+                    <span>一键远程配置</span>
+                </a>
+                <span class="floatR">
+                    <a id="filter-btn" class="buttonS" href="###;" data-toggle="filter">
+                        <span class="ico i-filter"></span>
+                        <span></span>
+                        <span class="ico i-down"></span>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="fluid filterForm" style="display:none;">
+            <form action="list.action" class="form-horizontal" history="true">
+                <ul class="formRow">
+                    <li class="control-group auto-by-filter">
+                        <label class="control-label">名称：</label>
+                        <div class="controls">
+                            <input name="serviceInfo.name" id="serviceInfo-name" type="text" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter">
+                        <label class="control-label">编号：</label>
+                        <div class="controls">
+                            <input name="serviceInfo.indexCode" id="serviceInfo-indexCode" type="text" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter">
+                        <label class="control-label">类型：</label>
+                        <div class="controls">
+                            <select id="serviceInfo-serviceType" name="serviceInfo.serviceType">
+                                <option value="">请选择</option>
+
+                                <option value="kbs">KBS(键盘代理服务)</option>
+
+                                <option value="peag">PEAG(动力环境接入网关)</option>
+
+                                <option value="kms">KMS(内容管理服务)</option>
+
+                                <option value="cms">CMS(中心管理系统)</option>
+
+                                <option value="sag">SAG(短信接入网关)</option>
+
+                                <option value="gis">GIS(电子地图服务)</option>
+
+                                <option value="vportal">V-PORTAL(视频门户)</option>
+
+                                <option value="dag">DAG(外设接入网关)</option>
+
+                                <option value="vrm">VRM(视频存储管理服务)</option>
+
+                                <option value="tvms">TVMS(电视墙管理服务)</option>
+
+                                <option value="ncg">NCG(级联服务)</option>
+
+                                <option value="ntp">NTP(校时服务)</option>
+
+                                <option value="ddns">DDNS(动态域名服务)</option>
+
+                                <option value="nms">NMS(视频网管服务)</option>
+
+                                <option value="vtm">VTM(视频传输管理服务)</option>
+
+                                <option value="vmcc">VMCC(视频管控中心)</option>
+
+                                <option value="mag">MAG(移动接入网关)</option>
+
+                                <option value="vms">VMS(视频管理服务)</option>
+
+                                <option value="eds">EDS(事件分发服务)</option>
+
+                                <option value="vag">VAG(视频设备接入网关)</option>
+
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn-set">
+                    <a class="buttonS bBlue" id="search-btn" type="submit">过滤</a>
+                    <a class="buttonS bGreyish" id="clear-btn" type="reset">重置</a>
+                </div>
+            </form>
+        </div>
+        <div class="datatable">
+            <table id="servicetable" cellspacing="0" cellpadding="0" width="100%" class="tLight checkAll">
+                <colgroup>
+                <col width="1%">
+                <col width="1%">
+                <col width="20%">
+                <col width="10%">
+                <col width="20%">
+                <col>
+                <col width="10%"></colgroup>
+            <thead>
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="checkAll" type="checkbox" value="" style="display: inline-block;"></span>
+                    </td>
+                    <td>序号</td>
+                    <td mapping="c_name" sort="true" class="sortCol">
+                        <div>
+                            名称
+                            <span></span>
+                        </div>
+                    </td>
+                    <td>状态</td>
+                    <td mapping="c_index_code" sort="true" class="sortCol">
+                        <div>
+                            编号
+                            <span></span>
+                        </div>
+                    </td>
+                    <td mapping="c_service_type" sort="true" class="sortCol">
+                        <div>
+                            类型
+                            <span></span>
+                        </div>
+                    </td>
+                    <td>集群</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-15" type="checkbox" value="15"></span>
+                    </td>
+                    <td class="textC">1</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=15');">vms</a>
+                    </td>
+                    <td>
+                        <span class="status-open"> <i></i>
+                            可用
+                        </span>
+
+                        <span > <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000034</td>
+                    <td>VMS(视频管理服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-12" type="checkbox" value="12"></span>
+                    </td>
+                    <td class="textC">2</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=12');">kbs</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000029</td>
+                    <td>KBS(键盘代理服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-13" type="checkbox" value="13"></span>
+                    </td>
+                    <td class="textC">3</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=13');">mag</a>
+                    </td>
+                    <td>
+
+                        <span class="status-closed">
+                            <i></i>
+                            不可用
+                        </span>
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000031</td>
+                    <td>MAG(移动接入网关)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-14" type="checkbox" value="14"></span>
+                    </td>
+                    <td class="textC">4</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=14');">vmcc</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000033</td>
+                    <td>VMCC(视频管控中心)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-4" type="checkbox" value="4"></span>
+                    </td>
+                    <td class="textC">5</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=4');">nms</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000010</td>
+                    <td>NMS(视频网管服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-5" type="checkbox" value="5"></span>
+                    </td>
+                    <td class="textC">6</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=5');">vag</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000013</td>
+                    <td>VAG(视频设备接入网关)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-6" type="checkbox" value="6"></span>
+                    </td>
+                    <td class="textC">7</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=6');">vtm</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000015</td>
+                    <td>VTM(视频传输管理服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-7" type="checkbox" value="7"></span>
+                    </td>
+                    <td class="textC">8</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=7');">vrm</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000018</td>
+                    <td>VRM(视频存储管理服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-8" type="checkbox" value="8"></span>
+                    </td>
+                    <td class="textC">9</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=8');">tvms</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000020</td>
+                    <td>TVMS(电视墙管理服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-9" type="checkbox" value="9"></span>
+                    </td>
+                    <td class="textC">10</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=9');">eds</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000022</td>
+                    <td>EDS(事件分发服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-10" type="checkbox" value="10"></span>
+                    </td>
+                    <td class="textC">11</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=10');">dag</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000025</td>
+                    <td>DAG(外设接入网关)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-11" type="checkbox" value="11"></span>
+                    </td>
+                    <td class="textC">12</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=11');">sag</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000027</td>
+                    <td>SAG(短信接入网关)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-2" type="checkbox" value="2"></span>
+                    </td>
+                    <td class="textC">13</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=2');">vportal</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000004</td>
+                    <td>V-PORTAL(视频门户)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-3" type="checkbox" value="3"></span>
+                    </td>
+                    <td class="textC">14</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=3');">gis</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000007</td>
+                    <td>GIS(电子地图服务)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="check">
+                            <input id="check-1" type="checkbox" value="1"></span>
+                    </td>
+                    <td class="textC">15</td>
+                    <td>
+                        <a href="javascript:$.pageSkip('web/module/servicemanager/view.action?id=1');">cms</a>
+                    </td>
+                    <td>
+                        <span class="status-open">
+                            <i></i>
+                            可用
+                        </span>
+
+                        <span >
+                            <i class="ico i-alarm mr5"></i>
+                            未知
+                        </span>
+                    </td>
+                    <td>10000000002010000001</td>
+                    <td>CMS(中心管理系统)</td>
+                    <td>
+
+                        <span class="status-node">
+                            <i></i>
+                            非集群
+                        </span>
+                    </td>
+                </tr>
+
+            </tbody>
+            </table>
+        </div>
+        <div class="pagination fixed" pageno="1" totalpage="1">
+            <div class="pagination-padding">
+                <div class="amount">
+                    <span>
+                        共 <em>15</em>
+                        条
+                    </span>
+                    <span> <em>1/1</em>
+                        页
+                    </span>
+                    <span>
+                        每页显示
+                        <select name="limit" page-type="page-size" uselimitcookie="">
+
+                            <option value="10">10</option>
+
+                            <option value="20" selected="">20</option>
+
+                            <option value="30">30</option>
+
+                            <option value="50">50</option>
+
+                            <option value="100">100</option>
+
+                        </select>
+                        条
+                    </span>
+                </div>
+
+                <ul class="pages">
+                    <li class="first">
+                        <a page-type="first" href="###;" class="disabled" disabled="disabled">首页</a>
+                    </li>
+                    <li class="prev">
+                        <a page-type="prev" href="###;" class="disabled" disabled="disabled">上一页</a>
+                    </li>
+                    <li class="next">
+                        <a page-type="next" href="###;" class="disabled" disabled="disabled">下一页</a>
+                    </li>
+                    <li class="last">
+                        <a page-type="last" href="###;" class="disabled" disabled="disabled">尾页</a>
+                    </li>
+                    <li>
+
+                        <form method="post">
+                            到第
+                            <input type="text" vtype="number" page-type="jump" _name="start" value="1" class="jumpTo" maxlength="10">
+                            <input type="hidden" name="start" class="jumpTo" maxlength="10">
+                            页
+                            <input type="button" page-type="jump" value="跳转" class="jumpToBtn"></form>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

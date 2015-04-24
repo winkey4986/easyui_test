@@ -1,0 +1,17 @@
+/* 
+* @Author: hikv
+* @Date:   2015-04-23 09:06:11
+* @Last Modified by:   anchen
+* @Last Modified time: 2015-04-24 16:24:52
+*/
+/*body{min-width: 1024px; min-height: 768px;overflow: auto;}*/
+
+/*长页面相关样式*/
+#navbar.fixednav{position:fixed;top:0px;left:0px;width:100%;}
+#footer.fixedfoot{position:fixed;bottom:0px;left:0px;width:100%;}
+/*常规页面样式*/
+.page{height: 100%}
+.btn-toolbar.fixed { top: 122px;}
+.pagination.fixed{bottom:29px;}
+#easyui-panal-center{overflow:hidden;border:0;color:inherit;}
+.pagination.absolute { position: absolute; z-index: 1001; bottom: 0; _bottom: auto; left: 0; width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; background: #fff;   border-top: none; border-top: 1px solid #DCDCD7; }

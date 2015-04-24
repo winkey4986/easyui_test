@@ -23,23 +23,14 @@ background: url('body_bg.png') repeat-x #f8f8f8;
     </head>
 
 <!--1. 在整个页面创建布局面板-->
-<body class="easyui-layout">
-    <!--1.1 egion="north"，指明高度，可以自适应-->
-<div  region="north" style="height:80px;"><center> <h1>管理系统</h1></center></div>
-
-<!--1.2 region="west",必须指明宽度-->
-<div region="west"  title="左侧菜单" split="true" style="width:220px" >页面左侧</div>
-
-<!--1.3region="center",这里的宽度和高度都是由周边决定，不用设置-->
-<div region="center" title="主体内容" split="true">
-写点东西
-
-</div>
-
-
-<!--1.5 region="south"，指明高度，可以自适应-->
-<div region="south" style="height:50px;"><center> <h3>页面底部</h3></center></div>
-
+<body>
+    <div id="cc" class="easyui-layout" fit="true">
+        <div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>
+        <div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>
+        <!-- <div data-options="region:'east',title:'East',split:true" style="width:100px;"></div>
+        <div data-options="region:'west',title:'West',split:true" style="width:100px;"></div> -->
+        <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;"></div>
+    </div>
 
 </body>
 </html>

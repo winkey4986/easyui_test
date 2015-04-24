@@ -1,0 +1,1003 @@
+<script type="text/javascript">
+    changeToolbarWidth();
+    changePaginationWidth();
+   $(".page.withFixed").resize(function() {
+        changeToolbarWidth();
+       changePaginationWidth();
+    });
+</script>
+
+<div class="page withFixed" >
+    <div class="wrapper">
+        <div class="breadline displayNone">
+            <ul class="breadcrumbs auto-navigation" menu-code="24">
+            </ul>
+        </div>
+        <div class="btn-toolbar fixed clearfix" id="gridFrame-toolbar">
+            <div class="btn-padding">
+            <a id="add-btn" class="buttonS" href="###"><span class="ico i-add"></span><span>添加</span></a>
+            <a class="buttonS" href="###" id="del-user-btn"><span class="ico i-del "></span><span>删除</span></a>
+            <a id="import-btn" class="buttonS" href="###;"><span class="ico i-device-import"></span><span>导入</span></a>
+             | 
+            <a class="buttonS" href="###" id="disable-user-btn"><span class="ico i-lock "></span><span>禁用</span></a>
+            <a class="buttonS" href="###" id="enable-user-btn"><span class="ico i-unlock "></span><span>解禁</span></a>
+            <span class="floatR"><a class="buttonS" href="" data-toggle="filter"><span class="ico i-filter"></span><span class="ico i-down"></span></a></span>
+            </div>
+        </div>
+        <div class="fluid filterForm" style="display:none;">
+            <form action="/cms/web/module/privilege/user/listUser.action" class="form-horizontal" history="true">
+                <input type="hidden" name="orgId" value="1">
+                <ul class="formRow">
+                    <li class="control-group  auto-by-filter">
+                        <label class="control-label">用户名：</label>
+                        <div class="controls"><input type="text" name="queryUser.name" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group  auto-by-filter">
+                        <label class="control-label">包含子组织：</label>
+                        <div class="controls">
+                        <div class="check">
+                           <label><input type="checkbox" name="containChild" value="true"><span>是</span></label> 
+                        </div></div>
+                    </li>
+                    <li class="control-group auto-by-filter">
+                        <label class="control-label">登录账号：</label>
+                        <div class="controls"><input type="text" name="queryUser.loginAccount" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter">
+                        <label class="control-label">用户状态：</label>
+                        <div class="controls">
+                            <select name="enable" id="">
+                                <option value="">请选择</option>
+                                <option value="1">正常</option>
+                                <option value="2">禁用</option>
+                                <option value="3">过期</option>
+                                <option value="4">未生效</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="control-group auto-by-filter" style="">
+                        <label class="control-label">性别：</label>
+                        <div class="controls">
+                            <select name="queryUser.gender" id="">
+                                <option value="">请选择</option>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="control-group auto-by-filter" style="">
+                        <label class="control-label">邮箱：</label>
+                        <div class="controls"><input type="text" name="queryUser.email" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter" style="">
+                        <label class="control-label">电话：</label>
+                        <div class="controls"><input type="text" name="queryUser.tel" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter" style="">
+                        <label class="control-label">手机：</label>
+                        <div class="controls"><input type="text" name="queryUser.mobile" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter" style="">
+                        <label class="control-label">传真：</label>
+                        <div class="controls"><input type="text" name="queryUser.fax" maxlength="1024"></div>
+                    </li>
+                    <li class="control-group auto-by-filter cols2">
+                        <label class="control-label">创建时间：</label>
+                        <div class="controls">
+                            <input type="text" hikui="calendar" showtime="true" maxdate="#F{$dp.$N('queryEndTime');}" name="queryStartTime" maxlength="1024" class="hikui-calendar Wdate datetimepicker" hikmap="_hik_1_" readonly="readonly"> - <input type="text" hikui="calendar" showtime="true" mindate="#F{$dp.$N('queryStartTime');}" name="queryEndTime" maxlength="1024" class="hikui-calendar Wdate datetimepicker" hikmap="_hik_2_" readonly="readonly">
+                        </div>
+                    </li>
+                    <li class="control-group auto-by-filter" style="">
+                        <label class="control-label">用户描述：</label>
+                        <div class="controls"><input type="text" name="queryUser.desc" maxlength="1024"></div>
+                    </li>
+                </ul>
+                <div class="btn-set">
+                    <a type="submit" class="buttonS bBlue">过滤</a> <a type="reset" class="buttonS bGreyish">重置</a>
+                </div>
+            </form>
+                <div class="formRow filterRow">
+                    <div class="btn-group btn-filter">
+                        <a class="buttonS bBlue" data-toggle="dropdown" href="#"><span class="ico i-add"></span><span>添加过滤条件</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu auto-filter">
+                        
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" checked="checked" index="0"><span>用户名</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" checked="checked" index="1"><span>包含子组织</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" checked="checked" index="2"><span>登录账号</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" checked="checked" index="3"><span>用户状态</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" index="4" checked="checked"><span>性别</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" index="5" checked="checked"><span>邮箱</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" index="6" checked="checked"><span>电话</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" index="7" checked="checked"><span>手机</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" index="8" checked="checked"><span>传真</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" checked="checked" index="9"><span>创建时间</span></label></span></a></li>
+    <li><a href="javascript:void(0);" data-stoppropagation="true"><span class="check"><label><input defaultvalue="" type="checkbox" index="10" checked="checked"><span>用户描述</span></label></span></a></li></ul>
+                    </div>
+                </div>
+        </div>
+        <div class="datatable">
+            <table cellspacing="0" cellpadding="0" width="100%" class="tLight checkAll">
+                <colgroup>
+                <col width="1%">
+                <col width="1%">
+                <col width="20%">
+                <col width="10%">
+                <col width="10%">
+                <col width="15%">
+                <col width="25%">
+                <col width="1%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                <col width="10%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <td><span class="check"><input id="checkAll" type="checkbox" style="display: inline-block;"></span></td>
+                    <td>序号</td>
+                    <td mapping="name" sort="true" class="sortCol"><div>用户名<span></span></div></td>
+                    <td>登录账号</td>
+                    <td>状态</td>
+                    <td>性别</td>
+                    <td>邮箱</td>
+                    <td>电话</td>
+                    <td>手机</td>
+                    <td>传真</td>
+                    <td mapping="createTime" sort="true" class="sortCol headerSortDown"><div>创建时间<span></span></div></td>
+                    <td>用户描述</td>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="644" data-enable="1"></span></td>
+                        <td class="textC">1</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(644,'ttt')">ttt</a> 
+                            <input type="hidden" id="user-id-644-input" value="ttt"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">ttt</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-23 14:32:50</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="623" data-enable="1"></span></td>
+                        <td class="textC">2</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(623,'b568')">b568</a> 
+                            <input type="hidden" id="user-id-623-input" value="b568"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b568</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="622" data-enable="1"></span></td>
+                        <td class="textC">3</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(622,'b567')">b567</a> 
+                            <input type="hidden" id="user-id-622-input" value="b567"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b567</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="621" data-enable="1"></span></td>
+                        <td class="textC">4</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(621,'b566')">b566</a> 
+                            <input type="hidden" id="user-id-621-input" value="b566"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b566</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="620" data-enable="1"></span></td>
+                        <td class="textC">5</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(620,'b565')">b565</a> 
+                            <input type="hidden" id="user-id-620-input" value="b565"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b565</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="619" data-enable="1"></span></td>
+                        <td class="textC">6</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(619,'b564')">b564</a> 
+                            <input type="hidden" id="user-id-619-input" value="b564"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b564</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="618" data-enable="1"></span></td>
+                        <td class="textC">7</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(618,'b563')">b563</a> 
+                            <input type="hidden" id="user-id-618-input" value="b563"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b563</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="617" data-enable="1"></span></td>
+                        <td class="textC">8</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(617,'b562')">b562</a> 
+                            <input type="hidden" id="user-id-617-input" value="b562"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b562</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="616" data-enable="1"></span></td>
+                        <td class="textC">9</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(616,'b561')">b561</a> 
+                            <input type="hidden" id="user-id-616-input" value="b561"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b561</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="615" data-enable="1"></span></td>
+                        <td class="textC">10</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(615,'b560')">b560</a> 
+                            <input type="hidden" id="user-id-615-input" value="b560"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b560</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="614" data-enable="1"></span></td>
+                        <td class="textC">11</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(614,'b559')">b559</a> 
+                            <input type="hidden" id="user-id-614-input" value="b559"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b559</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="613" data-enable="1"></span></td>
+                        <td class="textC">12</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(613,'b558')">b558</a> 
+                            <input type="hidden" id="user-id-613-input" value="b558"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b558</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:14</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="612" data-enable="1"></span></td>
+                        <td class="textC">13</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(612,'b557')">b557</a> 
+                            <input type="hidden" id="user-id-612-input" value="b557"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b557</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="611" data-enable="1"></span></td>
+                        <td class="textC">14</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(611,'b556')">b556</a> 
+                            <input type="hidden" id="user-id-611-input" value="b556"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b556</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="610" data-enable="1"></span></td>
+                        <td class="textC">15</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(610,'b555')">b555</a> 
+                            <input type="hidden" id="user-id-610-input" value="b555"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b555</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="609" data-enable="1"></span></td>
+                        <td class="textC">16</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(609,'b554')">b554</a> 
+                            <input type="hidden" id="user-id-609-input" value="b554"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b554</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="608" data-enable="1"></span></td>
+                        <td class="textC">17</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(608,'b553')">b553</a> 
+                            <input type="hidden" id="user-id-608-input" value="b553"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b553</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="607" data-enable="1"></span></td>
+                        <td class="textC">18</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(607,'b552')">b552</a> 
+                            <input type="hidden" id="user-id-607-input" value="b552"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b552</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="606" data-enable="1"></span></td>
+                        <td class="textC">19</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(606,'b551')">b551</a> 
+                            <input type="hidden" id="user-id-606-input" value="b551"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b551</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                    <tr>
+                        <td><span class="check"><input type="checkbox" name="checkId" data-id="605" data-enable="1"></span></td>
+                        <td class="textC">20</td>
+                        <td>
+                            <div class="nowrap maxwidth">
+                            
+                            <span class="ico i-male"></span>
+                            
+                            
+                            <a href="###" onclick="toUserInfo(605,'b550')">b550</a> 
+                            <input type="hidden" id="user-id-605-input" value="b550"> 
+                            </div>
+                        </td>
+                        <td><div class="nowrap maxwidth">b550</div></td>
+                        <td class="textC">
+                        
+                            
+                                <span class="ico i-ok"></span> 正常 
+                            
+                            
+                            
+                            
+                        
+                        </td>
+                        <td class="textC">
+                            
+                            男
+                            
+                            
+                            
+                        </td>
+                        <td><div class="nowrap maxwidth"><span class="date"></span></div></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td><span class="date"></span></td>
+                        <td class="sortCol"><span class="date">2015-04-22 11:44:13</span></td>
+                        <td><div class="nowrap maxwidth"> <span class="date"> </span></div></td>
+                     </tr>
+                
+                </tbody>
+            </table>
+            <form method="post">
+                    
+
+
+
+    <div class="pagination fixed" pageno="1" totalpage="31" id="gridFrame-pagination">
+        <div class="pagination-padding">
+        <div class="amount">
+            <span>共<em>605</em>条</span>
+            <span>
+                <em>1/31</em>页
+            </span>
+            <span>每页显示
+                <select name="limit" page-type="page-size" uselimitcookie="">
+                    
+                        <option value="10">10
+                        </option>
+                    
+                        <option value="20" selected="">20
+                        </option>
+                    
+                        <option value="30">30
+                        </option>
+                    
+                        <option value="50">50
+                        </option>
+                    
+                        <option value="100">100
+                        </option>
+                    
+                </select>
+                条
+            </span>
+        </div>
+        
+        <ul class="pages">
+            <li class="first">
+                <a page-type="first" href="###;" class="disabled" disabled="disabled">首页</a>
+            </li>
+            <li class="prev">
+                <a page-type="prev" href="###;" class="disabled" disabled="disabled">上一页</a>
+            </li>
+            <li class="next">
+                <a page-type="next" href="###;">下一页</a>
+            </li>
+            <li class="last">
+                <a page-type="last" href="###;">尾页</a>
+            </li>
+            <li>
+                
+                <div>
+                    到第 
+                    <input type="text" vtype="number" page-type="jump" _name="start" value="1" class="jumpTo" maxlength="10">
+                    <input type="hidden" name="start" class="jumpTo" maxlength="10">
+                    页 
+                    <input type="button" page-type="jump" value="跳转" class="jumpToBtn">
+                </div>
+                
+            </li>
+        </ul>
+        </div>
+    </div>
+
+            </form>
+        </div>
+    </div>
+
+
+<!-- <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;"><iframe style="width: 202px; height: 274px;" src="http://10.17.48.93/cms/baseui/js/sea/plugins/calendar/My97DatePicker.html" frameborder="0" border="0" scrolling="no"></iframe></div> -->
+</div>
